@@ -1,0 +1,260 @@
+:root {
+  --color-principal: #ff9944;
+  --color-secundario: #81501c;
+  --color-descriptivo: white;
+}
+
+.md-typeset p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+
+.md-typeset__scrollwrap:has(.table-bg-principal) td.table-bg-principal,
+.md-typeset__scrollwrap:has(.table-bg-principal) th.table-bg-principal { background-color: var(--color-principal); }
+.md-typeset__scrollwrap:has(.table-bg-secundario) td.table-bg-secundario,
+.md-typeset__scrollwrap:has(.table-bg-secundario) th.table-bg-secundario { background-color: var(--color-secundario); }
+
+.md-typeset__scrollwrap:has(.table-cl-principal) td.table-cl-principal,
+.md-typeset__scrollwrap:has(.table-cl-principal) th.table-cl-principal { color: var(--color-principal); }
+.md-typeset__scrollwrap:has(.table-cl-secundario) td.table-cl-secundario,
+.md-typeset__scrollwrap:has(.table-cl-secundario) th.table-cl-secundario { color: var(--color-secundario); }
+
+.md-typeset__scrollwrap:has(.table-full-container),
+.md-typeset__scrollwrap:has(.table-full-container) .md-typeset__table {
+  width: 100%;
+}
+.md-typeset table:has(.table-full-container) {
+  display: table;
+  width: 100% !important;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  box-shadow: none;
+}
+
+/* Ocultar la cabecera obligatoria de Markdown */
+.md-typeset table:has(.table-oculta) thead { display: none; }
+
+/* Primera columna */
+.md-typeset table:has(.table-main-column) td.table-main-column,
+.md-typeset table:has(.table-main-column) th.table-main-column {
+  width: 25%;
+  min-width: 130px;
+  font-weight: 700;
+}
+
+
+.md-typeset table:has(.table-text-bold) td.table-text-bold,
+.md-typeset table:has(.table-text-bold) th.table-text-bold {
+  font-weight: 700;
+}
+
+.md-typeset table:has(.table-content) tr:last-child td {
+  border-bottom: 0;
+}
+
+@media print {
+  .md-typeset table:has(.table-content) {
+    break-inside: avoid;
+  }
+}
+
+
+/* Bloques descriptivos */
+/* Bloque para resultados de aprendizaje */
+.md-typeset .admonition.bloque-descriptivo {
+  padding: 0.7rem 0.9rem;
+  background-color: var(--color-principal);
+  border: 0;
+  border-left: 4px solid var(--color-secundario);
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--color-descriptivo);
+}
+
+/* Título RA01 */
+.md-typeset .admonition.bloque-descriptivo > .admonition-title {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-secundario);
+  font-weight: 700;
+}
+
+/* Ocultar el icono predeterminado */
+.md-typeset .admonition.bloque-descriptivo > .admonition-title::before {
+  display: none;
+}
+
+/* Texto descriptivo */
+.md-typeset .admonition.bloque-descriptivo > p {
+  margin: 0;
+  color: var(--color-descriptivo);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* Evitar que el bloque se divida al imprimir */
+@media print {
+  .md-typeset .admonition.bloque-descriptivo {
+    break-inside: avoid;
+  }
+}
+
+
+/* Imágenes completas */
+.md-typeset img.imagen-contenido {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 1.5rem auto;
+}
+
+/* Marcador invisible para insertar saltos manuales en el PDF */
+.md-typeset .salto-pagina-pdf {
+  display: none;
+}
+.md-typeset .admonition.salto-pagina-pdf {
+  display: none;
+}
+
+@media print {
+
+  /*
+   * Eliminar el salto automático que mkdocs-print-site
+   * introduce antes de cada archivo Markdown.
+   */
+  #print-site-page section.print-page {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* Mantener el índice en una página independiente */
+  #print-site-page section.print-page:has(#print-page-toc) {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /* Comenzar el contenido después del índice */
+  #print-site-page > section.print-page.md-section {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /*
+   * Ocultar la página independiente que contiene únicamente
+   * el nombre de la UP.
+   */
+  #print-site-page section.print-page.md-section > h1 {
+    display: none;
+  }
+
+  /* Aplicar los saltos introducidos manualmente */
+  #print-site-page .salto-pagina-pdf {
+    display: block;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    break-after: page;
+    page-break-after: always;
+  }
+   #print-site-page .admonition.salto-pagina-pdf {
+    display: block !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-left: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+
+    break-after: page;
+    page-break-after: always;
+  }
+
+  #print-site-page .admonition.salto-pagina-pdf::before,
+  #print-site-page .admonition.salto-pagina-pdf::after {
+    display: none !important;
+    content: none !important;
+  }
+
+
+}
+
+/* =========================================================
+   CABECERA PERSONALIZADA PARA EL PDF
+   ========================================================= */
+@page {
+  size: A4 portrait;
+  margin: 19mm 15mm 18mm 15mm;
+
+  @top-left {
+    content: none;
+  }
+
+  @top-center {
+    content: url("../images/cabecera-pdf.png");
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  @top-right {
+    content: none;
+  }
+
+  @bottom-left {
+    content: "Curs 2026/2027";
+    font-family: "Roboto", sans-serif;
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: #c8b88d;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  @bottom-center {
+    content: none;
+  }
+
+  @bottom-right {
+    content: "página " counter(page) " | " counter(pages);
+    font-family: "Roboto", sans-serif;
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: #c8b88d;
+    text-align: right;
+    vertical-align: middle;
+  }
+}
+/* Portada sin cabecera ni pie */
+@page :first {
+  @top-left {
+    content: none;
+  }
+
+  @top-center {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
+
+  @bottom-left {
+    content: none;
+  }
+
+  @bottom-center {
+    content: none;
+  }
+
+  @bottom-right {
+    content: none;
+  }
+}

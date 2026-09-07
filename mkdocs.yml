@@ -1,0 +1,58 @@
+site_name: Desarrollo Web en Entorno Cliente
+site_description: Apuntes del módulo de Desarrollo Web en Entorno Cliente de 2.º DAW
+site_author: Carlos Alcañiz Carbonell
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: orange
+      accent: light green
+      toggle:
+        icon: material/weather-night
+        name: Activar modo oscuro
+    - scheme: slate
+      primary: orange
+      accent: light green
+      toggle:
+        icon: material/weather-sunny
+        name: Activar modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search:
+      lang: es
+      
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: >
+  © 2026-2027 Carlos Alcañiz ·
+  Desarrollo Web en Entorno Cliente
+
+extra:
+  generator: false
+  
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Inicio: index.md
+  - UP01. Arquitecturas y tecnologías de programación web en cliente:
+      - 1. Relación Curricular: up01/01-index.md
