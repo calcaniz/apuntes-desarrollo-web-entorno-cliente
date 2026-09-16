@@ -1,7 +1,13 @@
 :root {
   --color-principal: #ff9944;
+  --color-principal-light: #fdf4e9;
   --color-secundario: #81501c;
   --color-descriptivo: white;
+}
+
+.imagen-centrada {
+  display: block;
+  margin: 0 auto;
 }
 
 .md-typeset p {
@@ -10,6 +16,9 @@
   hyphens: auto;
 }
 
+.md-typeset__scrollwrap:has(.table-bg-principal) table tbody tr:nth-child(even){
+  background-color: var(--color-principal-light);
+}
 
 .md-typeset__scrollwrap:has(.table-bg-principal) td.table-bg-principal,
 .md-typeset__scrollwrap:has(.table-bg-principal) th.table-bg-principal { background-color: var(--color-principal); }
