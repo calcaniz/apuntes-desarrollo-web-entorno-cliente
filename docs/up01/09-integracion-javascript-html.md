@@ -1,5 +1,20 @@
+## 9. Integración de JavaScript en HTML
 
-Para que el navegador ejecute código JavaScript, este debe vincularse con un documento HTML. La integración se realiza mediante el elemento `<script>`, que permite incorporar código ejecutable. Cuando el navegador encuentra este elemento, entrega su contenido al motor JavaScript para que lo procese.
+El elemento `<script>` permite incorporar JavaScript a un documento HTML. El código puede escribirse directamente en el documento o almacenarse en un archivo externo.
+
+### 9.1. Formas de integración
+
+#### JavaScript en atributos HTML
+
+```html
+<button onclick="alert('Inscripción solicitada')">
+  Inscribirme
+</button>
+```
+
+Esta opción mezcla estructura y comportamiento, dificulta el mantenimiento y no se recomienda salvo en ejemplos mínimos.
+
+#### JavaScript interno
 
 ```html
 <script>
@@ -7,77 +22,62 @@ Para que el navegador ejecute código JavaScript, este debe vincularse con un do
 </script>
 ```
 
-Existen dos modalidades para incorporar JavaScript:
+Resulta útil para pruebas breves, pero no facilita la reutilización.
 
-- **JavaScript interno:** el código se escribe entre las etiquetas de apertura y cierre. Se utiliza para pruebas rápidas, demostraciones y ejemplos muy breves, pero resulta difícil de reutilizar y se mezcla con la estructura HTML.
-
-    ```html
-    <script>
-      const nombreAplicacion = "FestWeb";
-      console.log(nombreAplicacion);
-    </script>
-    ```
-
-- **JavaScript externo:** el código se almacena en un archivo con extensión `.js`, que se carga mediante el atributo `src`.
-
-    ```html
-    <script src="./js/main.js"></script>
-    ```
-
-    ```js
-    // ./js/main.js
-    const nombreAplicacion = "FestWeb";
-    console.log(nombreAplicacion);
-    ```
-
-### 9.1. Ubicación y orden de ejecución
-
-El navegador procesa normalmente el documento HTML en el orden en que aparece escrito. Un script convencional puede ejecutarse antes de que se hayan creado los elementos situados después de él:
+#### JavaScript externo
 
 ```html
-<head>
-  <script src="./js/main.js"></script>
-</head>
-<body>
-  <button id="inscribirse">Inscribirme</button>
-</body>
+<script src="./js/main.js"></script>
 ```
 
-Si `main.js` intenta localizar el botón inmediatamente, es posible que todavía no exista en el DOM. Una solución tradicional consistía en colocar los scripts al final del cuerpo. De esta forma, el navegador encuentra el script después de haber procesado el contenido anterior:
+```js
+// ./js/main.js
+console.log("FestWeb se ha cargado");
+```
+
+Los archivos externos separan responsabilidades, pueden reutilizarse y permiten al navegador almacenarlos en caché.
+
+!!! importante "Separación de responsabilidades"
+
+    HTML define la estructura, CSS la presentación y JavaScript el comportamiento.
+
+### 9.2. Momento de ejecución
+
+Un script convencional detiene temporalmente el análisis del HTML para descargarse y ejecutarse. Si aparece antes que los elementos que necesita, estos todavía no existirán en el DOM.
+
+Una solución tradicional es situarlo al final de `<body>`. También puede esperarse al evento `DOMContentLoaded`:
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  const boton = document.querySelector("#inscribirse");
+  console.log(boton);
+});
+```
+
+Actualmente podemos controlar la carga mediante atributos específicos:
+
+| Mecanismo { .table-bg-principal .table-cl-secundario } | Ejecución { .table-bg-principal .table-cl-secundario } | Orden { .table-bg-principal .table-cl-secundario } | Uso { .table-full-container .table-bg-principal .table-cl-secundario }|
+|---|---|:---:|---|
+| Script convencional | Al encontrarlo; puede bloquear el HTML | Sí | Ejemplos sencillos o final de `body` |
+| `defer` | Después de procesar el HTML | Sí | Scripts clásicos que utilizan el DOM |
+| `async` | En cuanto termina la descarga | No | Scripts independientes |
+| `type="module"` | Después de procesar el HTML y resolver dependencias | Según dependencias | Aplicaciones organizadas en módulos |
 
 ```html
-<body>
-  <button id="inscribirse">Inscribirme</button>
-  <script src="./js/main.js"></script>
-</body>
+<script defer src="./js/main.js"></script>
+<script async src="./js/estadisticas.js"></script>
+<script type="module" src="./js/aplicacion.js"></script>
 ```
 
-Actualmente también disponemos de atributos y módulos que permiten controlar mejor la carga.
-
-### 9.2. Los atributos `defer` y `async`
-
-Los atributos `defer` y `async` permiten descargar scripts externos sin bloquear del mismo modo el procesamiento del HTML:
-
-- **`defer`:** el script se descarga mientras continúa el análisis del HTML, se ejecuta cuando el documento ha sido procesado y conserva el orden relativo entre varios scripts con `defer`. Resulta adecuado cuando el código necesita acceder a elementos del documento. En este ejemplo, `datos.js` se ejecutará antes que `main.js`:
-
-    ```html
-    <script defer src="./js/datos.js"></script>
-    <script defer src="./js/main.js"></script>
-    ```
-
-- **`async`:** también se descarga mientras continúa el análisis, pero se ejecuta en cuanto termina la descarga. No garantiza el orden entre varios scripts. Resulta útil para código independiente que no depende del DOM ni de otros scripts, como determinadas herramientas de estadísticas.
-
-    ```html
-    <script async src="./js/estadisticas.js"></script>
-    ```
+`async` no debe utilizarse cuando un archivo depende de otro, porque el orden de ejecución no está garantizado.
 
 ### 9.3. Módulos JavaScript
 
-Los módulos permiten dividir una aplicación en archivos independientes que exportan e importan funcionalidades. Para indicar que un archivo es un módulo se utiliza el atributo `type="module"`.
+Los módulos dividen la aplicación en archivos con responsabilidades concretas y permiten importar y exportar elementos.
 
-```html
-<!-- HTML -->
-<script type="module" src="./js/main.js"></script>
+```js
+// ./js/configuracion.js
+export const nombreAplicacion = "FestWeb";
 ```
 
 ```js
@@ -87,21 +87,24 @@ import { nombreAplicacion } from "./configuracion.js";
 console.log(nombreAplicacion);
 ```
 
-```js
-// ./js/configuracion.js
-export const nombreAplicacion = "FestWeb";
+```html
+<script type="module" src="./js/main.js"></script>
 ```
 
-Los módulos se cargan de forma diferida de manera predeterminada. Por tanto, normalmente no necesitan añadir `defer`.
+Los módulos:
+
+- Se cargan de forma diferida de manera predeterminada.
+- Tienen su propio ámbito.
+- Se ejecutan en modo estricto.
+- Resuelven las dependencias indicadas mediante `import`.
+- Requieren rutas explícitas, incluida normalmente la extensión `.js`.
+- Deben utilizarse mediante un servidor web y no abriendo directamente el archivo con `file://`.
+
+Durante el curso utilizaremos el servidor local proporcionado por Vite.
 
 !!! actividad "Actividad opcional"
-    El siguiente código no se carga correctamente:
 
-    ```html
-    <script type="module" src="./js/principal.js"></script>
-    ```
-
-    La estructura real es:
+    La estructura real del proyecto es:
 
     ```text
     FestWeb/
@@ -110,6 +113,10 @@ Los módulos se cargan de forma diferida de manera predeterminada. Por tanto, no
         └── main.js
     ```
 
-    ¿Cómo podríamos corregirlo?
+    Corrige esta referencia y explica qué mecanismo de carga utiliza:
+
+    ```html
+    <script type="module" src="./js/principal.js"></script>
+    ```
 
 !!! salto-pagina-pdf ""

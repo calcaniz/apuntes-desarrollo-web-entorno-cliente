@@ -1,16 +1,50 @@
 ## 8. Programación mediante guiones
 
-La programación web en cliente se ha basado tradicionalmente en el uso de guiones o *scripts*. JavaScript comenzó utilizándose para tareas sencillas, como validar formularios o mostrar mensajes. Actualmente permite desarrollar aplicaciones completas como FestWeb.
+JavaScript comenzó utilizándose para pequeños guiones o *scripts*, aunque actualmente permite desarrollar aplicaciones completas.
 
 ### 8.1. El concepto de script
 
-Un **script** es un conjunto de instrucciones que se ejecuta dentro de un entorno anfitrión. En el desarrollo web suele escribirse en JavaScript y el navegador proporciona el entorno de ejecución. El código puede estar integrado en el HTML o almacenado en un fichero externo. Su ejecución puede comenzar al cargar la página o al producirse un evento.
+Un **script** es un conjunto de instrucciones ejecutado dentro de un entorno anfitrión. En el desarrollo web, el navegador descarga el código JavaScript, lo ejecuta en el dispositivo del usuario y le proporciona APIs para interactuar con la página.
 
-### 8.2. Programación dirigida a eventos
+Un mismo lenguaje puede ejecutarse en otros entornos, como Node.js, pero las capacidades disponibles serán diferentes.
 
-Las aplicaciones web no ejecutan siempre sus instrucciones de principio a fin y terminan. Muchas permanecen a la espera de que ocurra algún acontecimiento. A este concepto se le llama **evento**.
+### 8.2. Características principales
 
-Un evento es un hecho que el navegador puede detectar, como la carga de un documento, la pulsación de un botón o la llegada de una respuesta del servidor.
+| Característica { .table-full-container .table-bg-principal .table-cl-secundario } | Consecuencia { .table-full-container .table-bg-principal .table-cl-secundario } |
+|---|---|
+| Tipado dinámico | Una variable puede almacenar valores de tipos diferentes |
+| Coerción de tipos | JavaScript puede convertir valores automáticamente |
+| Ejecución mediante un motor | El motor analiza, ejecuta y optimiza el código mediante JIT |
+| Programación dirigida por eventos | Parte del código responde a acciones o acontecimientos |
+| Operaciones asíncronas | La aplicación puede esperar resultados sin bloquear toda la interfaz |
+| Código visible | El usuario puede inspeccionarlo y modificarlo |
+| Sandbox | El navegador restringe el acceso al dispositivo y a otros orígenes |
+| Dependencia del entorno | Las APIs y capacidades disponibles pueden variar |
+
+El tipado dinámico aporta flexibilidad, pero puede generar resultados inesperados:
+
+```js
+const precio = "20";
+const gastosEnvio = 5;
+
+console.log(precio + gastosEnvio); // "205"
+```
+
+El operador `+` concatena los valores porque `precio` es una cadena. La conversión explícita evita la ambigüedad:
+
+```js
+console.log(Number(precio) + gastosEnvio); // 25
+```
+
+Los errores pueden ser:
+
+- **De sintaxis:** el código no respeta las reglas del lenguaje.
+- **De ejecución:** una instrucción falla mientras se ejecuta.
+- **Lógicos:** el programa termina, pero el resultado es incorrecto.
+
+### 8.3. Programación dirigida por eventos
+
+Una aplicación web permanece a la espera de eventos como la carga del documento, la pulsación de un botón o la llegada de una respuesta.
 
 ```js
 const boton = document.querySelector("#inscribirse");
@@ -20,26 +54,26 @@ boton.addEventListener("click", () => {
 });
 ```
 
-### 8.3. Ventajas, limitaciones e inconvenientes
+El navegador detecta el evento `click` y ejecuta la función asociada. Los eventos se estudiarán en profundidad en una unidad posterior.
+
+### 8.4. Ventajas e inconvenientes
 
 | Ventajas { .table-bg-principal .table-cl-secundario } | Inconvenientes { .table-bg-principal .table-cl-secundario } |
 |---|---|
-| Respuesta inmediata ante determinadas acciones | El código puede inspeccionarse y modificarse |
-| Interfaces más dinámicas | No debe contener secretos ni credenciales |
-| Actualización parcial del contenido | Los datos enviados por el cliente no son completamente fiables |
-| Validación inicial de formularios | Existen diferencias entre navegadores y dispositivos |
-| Menos peticiones para operaciones locales | El rendimiento depende del equipo del usuario |
-| Aprovechamiento de los recursos del dispositivo | El navegador restringe el acceso al sistema |
-| Separación entre presentación, comportamiento y procesamiento del servidor | Un error de JavaScript puede impedir parte del funcionamiento |
-|  | La aplicación puede depender excesivamente de que JavaScript esté disponible |
+| Respuesta inmediata e interfaces dinámicas | El código puede inspeccionarse y modificarse |
+| Actualización parcial del contenido | No debe contener secretos ni aplicar por sí solo la seguridad |
+| Menos peticiones para operaciones locales | El rendimiento depende del dispositivo |
+| Portabilidad entre navegadores compatibles | Pueden existir diferencias de compatibilidad |
+| Desarrollo y despliegue rápidos | Algunos errores solo aparecen durante la ejecución |
 
 !!! actividad "Actividad opcional"
-    Clasifica estas situaciones como **evento**, **respuesta del script** o **responsabilidad del servidor**:
 
-    1. El usuario pulsa **Inscribirme**.
-    2. El botón cambia a **Procesando**.
-    3. Se comprueba si quedan plazas.
-    4. Se registra la inscripción.
-    5. Aparece un mensaje de confirmación.
+    Responde brevemente:
+
+    1. ¿Qué proporciona el navegador al código JavaScript?
+    2. ¿Por qué `"20" + 5` produce `"205"`?
+    3. ¿Qué diferencia existe entre un error de ejecución y uno lógico?
+    4. ¿Qué significa programación dirigida por eventos?
+    5. ¿Por qué el código cliente no debe contener secretos?
 
 !!! salto-pagina-pdf ""

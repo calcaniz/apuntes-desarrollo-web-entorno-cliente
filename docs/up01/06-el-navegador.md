@@ -1,79 +1,161 @@
-El navegador es el programa que permite acceder a las aplicaciones web, pero su función no se limita a descargar y mostrar documentos. Los navegadores actuales son capaces de interpretar HTML, ejecutar JavaScript y aplicar medidas de seguridad. Gracias a estas capacidades, aplicaciones como FestWeb pueden ofrecer una interfaz interactiva sin necesidad de instalar un programa tradicional.
+---
+
+title: 6. El navegador como entorno de ejecución
+
+---
+
+# 6. El navegador como entorno de ejecución
+
+El navegador no se limita a mostrar documentos: solicita recursos, interpreta HTML y CSS, ejecuta JavaScript, representa la interfaz y protege al usuario. Por ello, constituye el entorno de ejecución de las aplicaciones web en el cliente.
 
 ### 6.1. Funciones principales del navegador
 
-Cuando una persona utiliza una aplicación web, el navegador realiza numerosas tareas de forma coordinada:
+Un navegador realiza de forma coordinada las siguientes tareas:
 
-1. **Interpreta direcciones:** permite introducir una URL y determina qué recurso debe solicitar.
-2. **Se comunica con servidores:** envía peticiones y procesa las respuestas recibidas mediante protocolos web.
-3. **Descarga recursos:** obtiene los archivos necesarios para construir la aplicación.
-4. **Interpreta HTML:** analiza la estructura del documento y reconoce sus elementos.
-5. **Aplica CSS:** determina la apariencia y distribución de los elementos.
-6. **Ejecuta JavaScript:** procesa el código que proporciona comportamiento a la interfaz.
-7. **Representa el resultado:** combina estructura, estilos y estado para dibujar la interfaz.
-8. **Gestiona la interacción:** detecta pulsaciones, escritura, movimientos del puntero y otras acciones.
-9. **Protege al usuario:** limita el acceso del código web al sistema operativo y separa, en la medida de lo posible, unas aplicaciones de otras.
+1. Interpreta una URL y localiza el recurso solicitado.
+2. Se comunica con servidores y descarga HTML, CSS, JavaScript, imágenes o datos.
+3. Construye y representa la página.
+4. Ejecuta JavaScript y gestiona las interacciones.
+5. Conserva determinados datos en el dispositivo.
+6. Aplica restricciones de seguridad y permisos.
 
 !!! pregunta "Pregunta"
-    Si el navegador únicamente mostrara documentos, ¿podría FestWeb validar formularios, actualizar el catálogo sin recargar o responder al botón **Inscribirme**?
 
-### 6.2. Componentes generales del navegador
+    Si el navegador solo mostrara documentos, ¿podría FestWeb filtrar eventos, validar formularios o actualizar el catálogo sin recargar la página?
 
-La organización concreta depende de cada producto, pero podemos distinguir estos componentes generales:
+### 6.2. Componentes generales
 
-- **Interfaz de usuario:** parte visible del propio navegador, como la barra de direcciones, las pestañas y los botones de navegación. No debe confundirse con la interfaz de la página web.
-- **Gestión de red:** se ocupa de las comunicaciones necesarias para solicitar y recibir recursos.
-- **Motor de renderizado:** interpreta principalmente HTML y CSS y participa en la construcción de la representación visual.
-- **Motor JavaScript:** procesa y ejecuta el código JavaScript.
-- **Almacenamiento:** gestiona mecanismos que permiten conservar información en el dispositivo.
-- **Gestión de seguridad:** controla permisos y restricciones para evitar que el código web acceda libremente al dispositivo o a información de otras aplicaciones.
-- **Herramientas de desarrollo:** permiten inspeccionar el documento, los estilos, los scripts, las comunicaciones y el rendimiento.
+| Componente { .table-full-container .table-bg-principal .table-cl-secundario } | Función { .table-bg-principal .table-cl-secundario } |
+|---|---|
+| Interfaz de usuario | Barras, pestañas, botones y menús del navegador |
+| Motor del navegador | Coordina los componentes y la navegación |
+| Motor de renderizado | Interpreta HTML y CSS y genera la representación visual |
+| Motor JavaScript | Analiza y ejecuta JavaScript |
+| Módulo de red | Gestiona peticiones, respuestas, caché y cookies |
+| Almacenamiento | Conserva información en el dispositivo |
+| Seguridad | Aplica aislamiento, permisos y restricciones |
+| DevTools | Permite inspeccionar y depurar la aplicación |
 
-### 6.3. Interpretación y compilación JIT
+Los motores más utilizados son:
 
-JavaScript se ha descrito tradicionalmente como un lenguaje interpretado. Sin embargo, los motores actuales utilizan estrategias más complejas. El motor puede analizar el código, comenzar a ejecutarlo, detectar las partes utilizadas con frecuencia, transformarlas y optimizarlas, y ejecutar versiones más eficientes.
+| Navegadores { .table-full-container .table-bg-principal .table-cl-secundario } | Motor de renderizado { .table-bg-principal .table-cl-secundario } | Motor JavaScript { .table-bg-principal .table-cl-secundario } |
+|---|---|---|
+| Chrome, Edge y Opera | Blink | V8 |
+| Firefox | Gecko | SpiderMonkey |
+| Safari | WebKit | JavaScriptCore |
 
-Este proceso recibe habitualmente el nombre de **compilación JIT** (*Just in Time*). Por tanto, es más preciso afirmar que los motores actuales combinan interpretación y compilación dinámica para ejecutar JavaScript.
+Un navegador completo no es lo mismo que su motor de renderizado ni que su motor JavaScript.
 
-!!! actividad "Actividad opcional"
-    Indica qué componente interviene principalmente en cada operación:
+### 6.3. Construcción de la página
 
-    1. Ejecutar una función JavaScript.
-    2. Calcular el tamaño de una tarjeta.
-    3. Enviar una petición al servidor.
-    4. Mostrar las pestañas del navegador.
-    5. Examinar una variable durante la depuración.
+El navegador transforma los recursos recibidos en una interfaz mediante este proceso:
 
-### 6.4. Compatibilidad y estándares web
+1. **DOM:** representa la estructura creada a partir del HTML.
+2. **CSSOM:** representa las reglas obtenidas del CSS.
+3. **Render Tree:** combina los elementos visibles con sus estilos.
+4. **Layout:** calcula tamaños y posiciones.
+5. **Paint y composición:** dibuja y combina las capas en pantalla.
 
-Las aplicaciones web pueden utilizarse desde navegadores y dispositivos diferentes. Para que esto sea posible, las tecnologías deben seguir especificaciones compartidas. Los estándares web describen cómo deben funcionar tecnologías como HTML, CSS, JavaScript, los gráficos y el contenido multimedia.
+```text
+HTML → DOM ───────────────┐
+                         ├→ Render Tree → Layout → Paint
+CSS  → CSSOM ────────────┘
+```
 
-Organismos como el **W3C** y el **WHATWG**, junto con **Ecma International** en el caso de ECMAScript, participan en la elaboración y evolución de estas especificaciones. Sin estándares comunes, cada navegador podría interpretar de forma completamente distinta el mismo código.
+JavaScript puede modificar el DOM o los estilos. Cuando el cambio afecta a la presentación, el navegador actualiza las fases necesarias.
 
-Los estándares permiten crear aplicaciones más portables, reducir diferencias entre navegadores, mejorar la interoperabilidad, incorporar nuevas capacidades de forma coordinada y establecer comportamientos previsibles. Sin embargo, que exista un estándar no significa que todos los navegadores incorporen una característica al mismo tiempo. Por ello, una aplicación debe probarse en los navegadores y dispositivos relevantes para su público.
+!!! importante "DOM y página visible"
 
-Una estrategia consiste en proporcionar primero una experiencia básica y compatible y añadir capacidades avanzadas cuando estén disponibles. Es preferible comprobar si una capacidad existe antes de utilizarla:
+    El DOM representa el documento, pero no es una imagen de la página. Un elemento con `display: none` puede existir en el DOM y no aparecer en el Render Tree.
+
+### 6.4. APIs del navegador
+
+JavaScript proporciona el lenguaje; el navegador añade objetos y APIs para interactuar con la página, la red o el dispositivo.
+
+| API { .table-main-column .table-bg-principal .table-cl-secundario }| Utilidad { .table-full-container .table-bg-principal .table-cl-secundario }|
+|---|---|
+| DOM | Consultar y modificar el documento |
+| Eventos | Responder a acciones del usuario o del navegador |
+| Web Storage | Conservar preferencias y datos sencillos |
+| Fetch | Intercambiar datos con servidores |
+| Geolocalización | Solicitar la ubicación del dispositivo |
+| Multimedia | Utilizar audio, vídeo, cámara o micrófono |
+| Notificaciones | Mostrar avisos con autorización del usuario |
+
+```js
+const boton = document.querySelector("#inscribirse");
+
+boton.addEventListener("click", () => {
+  console.log("Inscripción solicitada");
+});
+```
+
+`document` y `addEventListener()` son capacidades proporcionadas por el navegador, no por el núcleo de JavaScript.
+
+Antes de utilizar una API conviene comprobar que está disponible:
 
 ```js
 if ("geolocation" in navigator) {
-  console.log("La geolocalización está disponible");
+  console.log("Geolocalización disponible");
 }
 ```
 
-!!! actividad "Actividad opcional"
-    Responde a las siguientes preguntas:
+Las APIs se estudiarán con más profundidad en las unidades correspondientes.
 
-    1. ¿Por qué el navegador se considera un entorno de ejecución?
-    2. ¿Qué funciones realiza además de mostrar páginas?
-    3. ¿Qué diferencia existe entre el navegador y su motor de renderizado?
-    4. ¿Qué función desempeña el motor JavaScript?
-    5. ¿Qué significa compilación JIT?
-    6. ¿Qué representación construye el navegador a partir del HTML?
-    7. ¿Cómo colaboran HTML, CSS y JavaScript durante la representación?
-    8. ¿Qué tipos de características proporciona el navegador?
-    9. ¿Por qué el código web se ejecuta en un entorno aislado?
-    10. ¿Puede JavaScript acceder libremente a los archivos del dispositivo?
-    11. ¿Por qué deben probarse las aplicaciones en diferentes navegadores?
-    12. ¿Qué relación existe entre los estándares y la compatibilidad?
+### 6.5. Seguridad y aislamiento
+
+El navegador ejecuta código descargado de Internet dentro de un entorno restringido o **sandbox**. Un script no puede acceder libremente a los archivos, programas, cámara, micrófono o datos de otras aplicaciones.
+
+Un **origen** está formado por el protocolo, el dominio y el puerto. Dos URL pertenecen al mismo origen únicamente si coinciden los tres elementos.
+
+| URL respecto a `https://festweb.es` { .table-full-container .table-bg-principal .table-cl-secundario } | ¿Mismo origen? { .table-full-container .table-bg-principal .table-cl-secundario }|
+|---|:---:|
+| `https://festweb.es/eventos` | Sí |
+| `http://festweb.es` | No: cambia el protocolo |
+| `https://api.festweb.es` | No: cambia el dominio |
+| `https://festweb.es:8443` | No: cambia el puerto |
+
+La **política del mismo origen** impide que una página lea libremente información de otro origen. Cuando una API desea autorizar una comunicación externa puede utilizar **CORS**, indicando mediante cabeceras qué orígenes pueden leer sus respuestas.
+
+Además:
+
+- Las capacidades sensibles requieren permiso del usuario.
+- Algunas APIs solo funcionan en contextos seguros mediante HTTPS.
+- El código del cliente puede inspeccionarse y modificarse.
+- Las validaciones y reglas de seguridad deben comprobarse también en el servidor.
+
+!!! peligro "El cliente no es un entorno de confianza"
+
+    El código JavaScript nunca debe contener contraseñas, credenciales ni claves secretas.
+
+### 6.6. Interpretación y compilación JIT
+
+JavaScript se ha descrito tradicionalmente como un lenguaje interpretado. Sin embargo, los motores actuales analizan el código, comienzan a ejecutarlo y compilan u optimizan las partes utilizadas con frecuencia. Este proceso se denomina **compilación JIT** (*Just in Time*).
+
+Por tanto, resulta más preciso afirmar que los motores modernos combinan interpretación y compilación dinámica.
+
+### 6.7. Compatibilidad y estándares web
+
+Los estándares permiten que HTML, CSS y JavaScript funcionen de forma previsible en navegadores diferentes. En su elaboración participan organismos como W3C, WHATWG y Ecma International.
+
+No todos los navegadores incorporan las novedades simultáneamente. Por ello debemos:
+
+- Utilizar tecnologías estandarizadas.
+- Comprobar la disponibilidad de las características.
+- Proporcionar alternativas cuando sea posible.
+- Probar la aplicación en los navegadores y dispositivos relevantes.
+
+!!! actividad "Actividad opcional"
+
+    Responde brevemente:
+
+    1. ¿Qué diferencia existe entre navegador, motor de renderizado y motor JavaScript?
+    2. ¿Qué representaciones se construyen a partir de HTML y CSS?
+    3. ¿Qué diferencia existe entre layout y paint?
+    4. ¿Qué proporciona una Web API?
+    5. ¿Qué tres elementos forman un origen?
+    6. ¿Por qué no debemos confiar únicamente en la validación del cliente?
+    7. ¿Qué significa compilación JIT?
+    8. ¿Por qué es necesario probar una aplicación en varios navegadores?
 
 !!! salto-pagina-pdf ""
