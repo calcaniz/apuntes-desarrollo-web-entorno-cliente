@@ -609,10 +609,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-css-presentacion-y-diseno" class="md-nav__link">
+  <a href="#72-css-presentacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2. CSS: presentación y diseño
+        7.2. CSS: presentación
       
     </span>
   </a>
@@ -620,10 +620,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#73-javascript-comportamiento-e-interactividad" class="md-nav__link">
+  <a href="#73-javascript-comportamiento" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.3. JavaScript: comportamiento e interactividad
+        7.3. JavaScript: comportamiento
       
     </span>
   </a>
@@ -642,10 +642,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#75-vue" class="md-nav__link">
+  <a href="#75-librerias-y-frameworks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.5. Vue
+        7.5. Librerías y frameworks
       
     </span>
   </a>
@@ -653,10 +653,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-aplicaciones-de-una-sola-pagina" class="md-nav__link">
+  <a href="#76-aplicaciones-spa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6. Aplicaciones de una sola página
+        7.6. Aplicaciones SPA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-tecnologias-complementarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7. Tecnologías complementarias
       
     </span>
   </a>
@@ -799,10 +810,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-css-presentacion-y-diseno" class="md-nav__link">
+  <a href="#72-css-presentacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2. CSS: presentación y diseño
+        7.2. CSS: presentación
       
     </span>
   </a>
@@ -810,10 +821,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#73-javascript-comportamiento-e-interactividad" class="md-nav__link">
+  <a href="#73-javascript-comportamiento" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.3. JavaScript: comportamiento e interactividad
+        7.3. JavaScript: comportamiento
       
     </span>
   </a>
@@ -832,10 +843,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#75-vue" class="md-nav__link">
+  <a href="#75-librerias-y-frameworks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.5. Vue
+        7.5. Librerías y frameworks
       
     </span>
   </a>
@@ -843,10 +854,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-aplicaciones-de-una-sola-pagina" class="md-nav__link">
+  <a href="#76-aplicaciones-spa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6. Aplicaciones de una sola página
+        7.6. Aplicaciones SPA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-tecnologias-complementarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7. Tecnologías complementarias
       
     </span>
   </a>
@@ -872,37 +894,33 @@
 
   <h1>7. Tecnologías de desarrollo web en cliente</h1>
 
-<p>El desarrollo web en cliente se apoya principalmente en tres tecnologías: HTML, CSS y JavaScript. Cada una asume una responsabilidad diferente, aunque trabajan conjuntamente para construir la interfaz. A ellas se añaden herramientas como TypeScript y frameworks como Vue, que facilitan el desarrollo de aplicaciones más grandes.</p>
+<p>El desarrollo web en cliente se apoya principalmente en HTML, CSS y JavaScript. TypeScript y los frameworks facilitan la construcción de aplicaciones de mayor tamaño.</p>
 <h3 id="71-html-estructura-y-contenido">7.1. HTML: estructura y contenido</h3>
-<p>HTML (<em>HyperText Markup Language</em>) es el lenguaje de marcado utilizado para definir la estructura y el contenido de una página. Permite representar encabezados, párrafos, enlaces, tablas, formularios o elementos de navegación.</p>
+<p>HTML es el lenguaje de marcado que define los elementos y el significado del contenido.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">"evento"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Carrera FestWeb<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>18 de octubre de 2026<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Inscribirme<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>HTML describe qué elementos existen y qué significado tienen, pero no determina por sí solo su diseño ni su comportamiento.</p>
-<h3 id="72-css-presentacion-y-diseno">7.2. CSS: presentación y diseño</h3>
-<p>CSS (<em>Cascading Style Sheets</em>) define cómo se presentan los elementos HTML. Permite controlar desde colores hasta transiciones y animaciones.</p>
+<h3 id="72-css-presentacion">7.2. CSS: presentación</h3>
+<p>CSS determina la apariencia y distribución de los elementos HTML.</p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">evento</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
 <span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="kt">rem</span><span class="p">;</span>
-<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Separar la estructura HTML de la presentación CSS facilita el mantenimiento y permite aplicar una identidad visual coherente.</p>
-<h3 id="73-javascript-comportamiento-e-interactividad">7.3. JavaScript: comportamiento e interactividad</h3>
-<p>JavaScript es el lenguaje de programación principal del navegador. Permite responder a las acciones del usuario y modificar dinámicamente la interfaz. Se utiliza para gestionar eventos, validar formularios o almacenar temporalmente información.</p>
+<p>Separar estructura y presentación facilita el mantenimiento y permite aplicar una identidad visual coherente.</p>
+<h3 id="73-javascript-comportamiento">7.3. JavaScript: comportamiento</h3>
+<p>JavaScript es el lenguaje de programación nativo del navegador. Permite responder a eventos, modificar la interfaz, validar datos, almacenar información y comunicarse con servidores.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">boton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"button"</span><span class="p">);</span>
 
 <span class="nx">boton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Solicitud de inscripción"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Inscripción solicitada"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>JavaScript y ECMAScript están estrechamente relacionados, pero no son exactamente lo mismo. <strong>ECMAScript</strong> es la especificación que define las características principales del lenguaje, mientras que <strong>JavaScript</strong> es una implementación de esa especificación y añade su integración con el entorno en el que se ejecuta.</p>
+<p><strong>ECMAScript</strong> es la especificación que define el núcleo del lenguaje. JavaScript implementa esa especificación y utiliza las APIs proporcionadas por su entorno de ejecución.</p>
 <h3 id="74-typescript">7.4. TypeScript</h3>
-<p>TypeScript es una extensión de JavaScript que incorpora un sistema de tipos y herramientas de análisis de código. Ayuda a detectar errores durante el desarrollo, documentar la estructura de los datos, mejorar el autocompletado, facilitar la refactorización y mantener proyectos grandes.</p>
-<p>El navegador no ejecuta directamente el código TypeScript habitual: antes debe transformarse en JavaScript.</p>
+<p>TypeScript amplía JavaScript con un sistema de tipos que ayuda a detectar errores durante el desarrollo y a documentar los datos.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Evento</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">nombre</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 <span class="w">  </span><span class="nx">plazas</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
@@ -913,54 +931,90 @@
 <span class="w">  </span><span class="nx">plazas</span><span class="o">:</span><span class="w"> </span><span class="kt">500</span><span class="p">,</span>
 <span class="p">};</span>
 </code></pre></div>
-<h3 id="75-vue">7.5. Vue</h3>
-<p>A medida que aumenta el tamaño de una aplicación, organizar directamente todo el código JavaScript puede resultar complejo. Para ello utilizaremos librerías y frameworks.</p>
-<p>Una <strong>librería</strong> proporciona funciones o componentes que el programador utiliza cuando los necesita: el código de la aplicación decide cuándo llamar a la librería. En cambio, un <strong>framework</strong> proporciona una estructura general para desarrollar la aplicación y establece una forma de organizarla.</p>
-<p>Vue es un framework orientado al desarrollo de interfaces web interactivas. Permite dividir la aplicación en unidades reutilizables denominadas <strong>componentes</strong> y facilita:</p>
-<ul>
-<li>Organizar la interfaz mediante componentes.</li>
-<li>Relacionar los datos con su representación.</li>
-<li>Actualizar automáticamente la vista cuando cambian los datos.</li>
-<li>Reutilizar elementos y mantener aplicaciones de mayor tamaño.</li>
-</ul>
-<h3 id="76-aplicaciones-de-una-sola-pagina">7.6. Aplicaciones de una sola página</h3>
-<p>Una SPA (<em>Single Page Application</em>) mantiene un documento principal y actualiza dinámicamente su contenido durante la navegación. En lugar de descargar una página HTML completa para cada cambio, se carga la aplicación inicial y JavaScript gestiona la navegación, solicita únicamente los datos necesarios y actualiza la parte correspondiente de la interfaz.</p>
+<p>El navegador no ejecuta directamente el TypeScript habitual: antes debe transformarse en JavaScript.</p>
+<h3 id="75-librerias-y-frameworks">7.5. Librerías y frameworks</h3>
+<p>Una <strong>librería</strong> ofrece funcionalidades que el código utiliza cuando las necesita. Un <strong>framework</strong> proporciona además una estructura y unas reglas para organizar la aplicación.</p>
+<p>Vue es un framework para crear interfaces interactivas mediante componentes reutilizables y actualización reactiva de la vista. Se estudiará en profundidad en la UP08.</p>
+<h3 id="76-aplicaciones-spa">7.6. Aplicaciones SPA</h3>
+<p>Una SPA (<em>Single Page Application</em>) mantiene un documento principal y actualiza dinámicamente su contenido durante la navegación.</p>
 <table>
 <thead>
 <tr>
-<th class="table-bg-principal table-cl-secundario">Ventajas</th>
-<th class="table-bg-principal table-cl-secundario">Inconvenientes</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Ventajas</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Inconvenientes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Navegación fluida</td>
+<td>Navegación fluida y actualización parcial</td>
 <td>Mayor dependencia de JavaScript</td>
 </tr>
 <tr>
 <td>Reutilización de componentes</td>
-<td>Carga inicial potencialmente mayor</td>
+<td>Mayor complejidad de estado y navegación</td>
 </tr>
 <tr>
-<td>Actualización parcial de la interfaz</td>
-<td>Gestión más compleja del estado y la navegación</td>
-</tr>
-<tr>
-<td>Experiencia cercana a una aplicación instalada</td>
-<td>Necesidad de cuidar accesibilidad, rendimiento y posicionamiento</td>
+<td>Experiencia próxima a una aplicación instalada</td>
+<td>Requiere cuidar accesibilidad, rendimiento y posicionamiento</td>
 </tr>
 </tbody>
 </table>
+<h3 id="77-tecnologias-complementarias">7.7. Tecnologías complementarias</h3>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">Tecnología</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Finalidad</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCSS/Sass</td>
+<td>Añadir variables y otras utilidades a los estilos</td>
+<td>CSS</td>
+</tr>
+<tr>
+<td>Babel</td>
+<td>Transformar sintaxis JavaScript</td>
+<td>JavaScript compatible</td>
+</tr>
+<tr>
+<td>Polyfill</td>
+<td>Implementar una funcionalidad ausente</td>
+<td>Código JavaScript adicional</td>
+</tr>
+<tr>
+<td>WebAssembly</td>
+<td>Ejecutar operaciones de alto rendimiento</td>
+<td>Módulo <code>.wasm</code></td>
+</tr>
+<tr>
+<td>Vite</td>
+<td>Coordinar el desarrollo y preparar el proyecto</td>
+<td>Recursos para el navegador</td>
+</tr>
+</tbody>
+</table>
+<p>WebAssembly no sustituye normalmente a JavaScript: puede ejecutar determinados cálculos mientras JavaScript gestiona la interfaz y las APIs del navegador.</p>
+<div class="highlight"><pre><span></span><code>Código de desarrollo
+        ↓
+Transformación y preparación
+        ↓
+HTML + CSS + JavaScript + WebAssembly
+        ↓
+Navegador
+</code></pre></div>
 <div class="admonition actividad">
 <p class="admonition-title">Actividad opcional</p>
 <p>Relaciona cada necesidad con su tecnología principal:</p>
 <ol>
-<li>Crear el título de un evento.</li>
+<li>Definir la estructura de una tarjeta.</li>
 <li>Aplicar el color corporativo.</li>
 <li>Responder al botón <strong>Inscribirme</strong>.</li>
-<li>Definir la estructura de los datos de un evento.</li>
-<li>Reutilizar una tarjeta en todo el catálogo.</li>
-<li>Navegar entre vistas sin recargar toda la página.</li>
+<li>Comprobar la estructura de los datos de un evento.</li>
+<li>Crear componentes reutilizables.</li>
+<li>Transformar el código antes de enviarlo al navegador.</li>
 </ol>
 </div>
 <div class="admonition salto-pagina-pdf"></div>
