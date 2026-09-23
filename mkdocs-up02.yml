@@ -1,0 +1,49 @@
+INHERIT: mkdocs.yml
+
+plugins:
+  - search:
+      lang: es
+
+  - print-site:
+      add_to_navigation: true
+      print_page_title: "Versión imprimible de la UP02"
+      print_page_basename: "imprimir-up02"
+
+      add_table_of_contents: true
+      toc_title: "Índice"
+      toc_depth: 2
+
+      enumerate_headings: false
+      enumerate_figures: false
+
+      add_cover_page: true
+      cover_page_template: "docs/assets/templates/portada-pdf.tpl"
+
+      add_print_site_banner: false
+      add_full_urls: false
+      include_css: true
+
+nav:
+  - UP02. Fundamentos de JavaScript:
+      - 1. Relación Curricular: up02/01-relacion-curricular.md
+      - 2. Introducción: up02/02-introduccion.md
+      - 3. Elección del lenguaje: up02/03-eleccion-lenguaje.md
+      - 4. Primer programa: up02/04-primer-programa.md
+      - 5. Variables y constantes: up02/05-variables-y-constantes.md
+      - 6. Tipos de datos: up02/06-tipos-de-datos.md
+      - 7. Operadores y expresiones: up02/07-operadores-y-expresiones.md
+      - 8. Conversión de tipos: up02/08-conversion-de-tipos.md
+      - 9. Ámbito de las variables: up02/09-ambito-de-las-variables.md
+      - 10. Estructuras condicionales: up02/10-estructuras-condicionales.md
+      - 11. Bucles e iteraciones: up02/11-bucles-e-iteraciones.md
+      - 12. Comentarios y legibilidad: up02/12-comentarios-y-legibilidad.md
+      - 13. Depuración y herramientas de apoyo: up02/13-depuracion-y-herramientas-de-apoyo.md
+
+extra:
+  generator: false
+
+  pdf:
+    modulo: "Desarrollo Web en Entorno Cliente"
+    codigo_up: "UP02"
+    titulo_up: "Fundamentos de JavaScript"
+    curso: "2026-2027"
