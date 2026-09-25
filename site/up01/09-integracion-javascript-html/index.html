@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#91-ubicacion-y-orden-de-ejecucion" class="md-skip">
+        <a href="#9-integracion-de-javascript-en-html" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -654,28 +654,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#91-ubicacion-y-orden-de-ejecucion" class="md-nav__link">
+  <a href="#9-integracion-de-javascript-en-html" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.1. Ubicación y orden de ejecución
+        9. Integración de JavaScript en HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Integración de JavaScript en HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-formas-de-integracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. Formas de integración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1. Formas de integración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-en-atributos-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript en atributos HTML
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#92-los-atributos-defer-y-async" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-interno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.2. Los atributos defer y async
+        JavaScript interno
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-externo" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        JavaScript externo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-momento-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. Momento de ejecución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#93-modulos-javascript" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -683,6 +734,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -755,28 +811,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#91-ubicacion-y-orden-de-ejecucion" class="md-nav__link">
+  <a href="#9-integracion-de-javascript-en-html" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.1. Ubicación y orden de ejecución
+        9. Integración de JavaScript en HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Integración de JavaScript en HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-formas-de-integracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. Formas de integración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1. Formas de integración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-en-atributos-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript en atributos HTML
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#92-los-atributos-defer-y-async" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-interno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9.2. Los atributos defer y async
+        JavaScript interno
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-externo" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        JavaScript externo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-momento-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. Momento de ejecución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#93-modulos-javascript" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -784,6 +891,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -806,88 +918,115 @@
 
   <h1>9. Integración de JavaScript en HTML</h1>
 
-<p>Para que el navegador ejecute código JavaScript, este debe vincularse con un documento HTML. La integración se realiza mediante el elemento <code>&lt;script&gt;</code>, que permite incorporar código ejecutable. Cuando el navegador encuentra este elemento, entrega su contenido al motor JavaScript para que lo procese.</p>
+<h2 id="9-integracion-de-javascript-en-html">9. Integración de JavaScript en HTML</h2>
+<p>El elemento <code>&lt;script&gt;</code> permite incorporar JavaScript a un documento HTML. El código puede escribirse directamente en el documento o almacenarse en un archivo externo.</p>
+<h3 id="91-formas-de-integracion">9.1. Formas de integración</h3>
+<h4 id="javascript-en-atributos-html">JavaScript en atributos HTML</h4>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"alert('Inscripción solicitada')"</span><span class="p">&gt;</span>
+  Inscribirme
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Esta opción mezcla estructura y comportamiento, dificulta el mantenimiento y no se recomienda salvo en ejemplos mínimos.</p>
+<h4 id="javascript-interno">JavaScript interno</h4>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"FestWeb se ha cargado"</span><span class="p">);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Existen dos modalidades para incorporar JavaScript:</p>
-<ul>
-<li>
-<p><strong>JavaScript interno:</strong> el código se escribe entre las etiquetas de apertura y cierre. Se utiliza para pruebas rápidas, demostraciones y ejemplos muy breves, pero resulta difícil de reutilizar y se mezcla con la estructura HTML.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">nombreAplicacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FestWeb"</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nombreAplicacion</span><span class="p">);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong>JavaScript externo:</strong> el código se almacena en un archivo con extensión <code>.js</code>, que se carga mediante el atributo <code>src</code>.</p>
+<p>Resulta útil para pruebas breves, pero no facilita la reutilización.</p>
+<h4 id="javascript-externo">JavaScript externo</h4>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// ./js/main.js</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">nombreAplicacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FestWeb"</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nombreAplicacion</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"FestWeb se ha cargado"</span><span class="p">);</span>
 </code></pre></div>
-</li>
-</ul>
-<h3 id="91-ubicacion-y-orden-de-ejecucion">9.1. Ubicación y orden de ejecución</h3>
-<p>El navegador procesa normalmente el documento HTML en el orden en que aparece escrito. Un script convencional puede ejecutarse antes de que se hayan creado los elementos situados después de él:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">"inscribirse"</span><span class="p">&gt;</span>Inscribirme<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<p>Los archivos externos separan responsabilidades, pueden reutilizarse y permiten al navegador almacenarlos en caché.</p>
+<div class="admonition importante">
+<p class="admonition-title">Separación de responsabilidades</p>
+<p>HTML define la estructura, CSS la presentación y JavaScript el comportamiento.</p>
+</div>
+<h3 id="92-momento-de-ejecucion">9.2. Momento de ejecución</h3>
+<p>Un script convencional detiene temporalmente el análisis del HTML para descargarse y ejecutarse. Si aparece antes que los elementos que necesita, estos todavía no existirán en el DOM.</p>
+<p>Una solución tradicional es situarlo al final de <code>&lt;body&gt;</code>. También puede esperarse al evento <code>DOMContentLoaded</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">boton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#inscribirse"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">boton</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
-<p>Si <code>main.js</code> intenta localizar el botón inmediatamente, es posible que todavía no exista en el DOM. Una solución tradicional consistía en colocar los scripts al final del cuerpo. De esta forma, el navegador encuentra el script después de haber procesado el contenido anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">"inscribirse"</span><span class="p">&gt;</span>Inscribirme<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<p>Actualmente podemos controlar la carga mediante atributos específicos:</p>
+<table>
+<thead>
+<tr>
+<th class="table-bg-principal table-cl-secundario">Mecanismo</th>
+<th class="table-bg-principal table-cl-secundario">Ejecución</th>
+<th class="table-bg-principal table-cl-secundario" style="text-align: center;">Orden</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Script convencional</td>
+<td>Al encontrarlo; puede bloquear el HTML</td>
+<td style="text-align: center;">Sí</td>
+<td>Ejemplos sencillos o final de <code>body</code></td>
+</tr>
+<tr>
+<td><code>defer</code></td>
+<td>Después de procesar el HTML</td>
+<td style="text-align: center;">Sí</td>
+<td>Scripts clásicos que utilizan el DOM</td>
+</tr>
+<tr>
+<td><code>async</code></td>
+<td>En cuanto termina la descarga</td>
+<td style="text-align: center;">No</td>
+<td>Scripts independientes</td>
+</tr>
+<tr>
+<td><code>type="module"</code></td>
+<td>Después de procesar el HTML y resolver dependencias</td>
+<td style="text-align: center;">Según dependencias</td>
+<td>Aplicaciones organizadas en módulos</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/estadisticas.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/aplicacion.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Actualmente también disponemos de atributos y módulos que permiten controlar mejor la carga.</p>
-<h3 id="92-los-atributos-defer-y-async">9.2. Los atributos <code>defer</code> y <code>async</code></h3>
-<p>Los atributos <code>defer</code> y <code>async</code> permiten descargar scripts externos sin bloquear del mismo modo el procesamiento del HTML:</p>
-<ul>
-<li>
-<p><strong><code>defer</code>:</strong> el script se descarga mientras continúa el análisis del HTML, se ejecuta cuando el documento ha sido procesado y conserva el orden relativo entre varios scripts con <code>defer</code>. Resulta adecuado cuando el código necesita acceder a elementos del documento. En este ejemplo, <code>datos.js</code> se ejecutará antes que <code>main.js</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/datos.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong><code>async</code>:</strong> también se descarga mientras continúa el análisis, pero se ejecuta en cuanto termina la descarga. No garantiza el orden entre varios scripts. Resulta útil para código independiente que no depende del DOM ni de otros scripts, como determinadas herramientas de estadísticas.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/estadisticas.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-</li>
-</ul>
+<p><code>async</code> no debe utilizarse cuando un archivo depende de otro, porque el orden de ejecución no está garantizado.</p>
 <h3 id="93-modulos-javascript">9.3. Módulos JavaScript</h3>
-<p>Los módulos permiten dividir una aplicación en archivos independientes que exportan e importan funcionalidades. Para indicar que un archivo es un módulo se utiliza el atributo <code>type="module"</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- HTML --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<p>Los módulos dividen la aplicación en archivos con responsabilidades concretas y permiten importar y exportar elementos.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ./js/configuracion.js</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">nombreAplicacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FestWeb"</span><span class="p">;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">// ./js/main.js</span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nombreAplicacion</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"./configuracion.js"</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nombreAplicacion</span><span class="p">);</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">// ./js/configuracion.js</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">nombreAplicacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"FestWeb"</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/main.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Los módulos se cargan de forma diferida de manera predeterminada. Por tanto, normalmente no necesitan añadir <code>defer</code>.</p>
+<p>Los módulos:</p>
+<ul>
+<li>Se cargan de forma diferida de manera predeterminada.</li>
+<li>Tienen su propio ámbito.</li>
+<li>Se ejecutan en modo estricto.</li>
+<li>Resuelven las dependencias indicadas mediante <code>import</code>.</li>
+<li>Requieren rutas explícitas, incluida normalmente la extensión <code>.js</code>.</li>
+<li>Deben utilizarse mediante un servidor web y no abriendo directamente el archivo con <code>file://</code>.</li>
+</ul>
+<p>Durante el curso utilizaremos el servidor local proporcionado por Vite.</p>
 <div class="admonition actividad">
 <p class="admonition-title">Actividad opcional</p>
-<p>El siguiente código no se carga correctamente:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/principal.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>La estructura real es:</p>
+<p>La estructura real del proyecto es:</p>
 <div class="highlight"><pre><span></span><code>FestWeb/
 ├── index.html
 └── scripts/
     └── main.js
 </code></pre></div>
-<p>¿Cómo podríamos corregirlo?</p>
+<p>Corrige esta referencia y explica qué mecanismo de carga utiliza:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"module"</span> <span class="na">src</span><span class="o">=</span><span class="s">"./js/principal.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
 </div>
 <div class="admonition salto-pagina-pdf"></div>
 

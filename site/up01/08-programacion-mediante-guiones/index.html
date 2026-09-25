@@ -649,10 +649,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-programacion-dirigida-a-eventos" class="md-nav__link">
+  <a href="#82-caracteristicas-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.2. Programación dirigida a eventos
+        8.2. Características principales
       
     </span>
   </a>
@@ -660,10 +660,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#83-ventajas-limitaciones-e-inconvenientes" class="md-nav__link">
+  <a href="#83-programacion-dirigida-por-eventos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.3. Ventajas, limitaciones e inconvenientes
+        8.3. Programación dirigida por eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-ventajas-e-inconvenientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4. Ventajas e inconvenientes
       
     </span>
   </a>
@@ -795,10 +806,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-programacion-dirigida-a-eventos" class="md-nav__link">
+  <a href="#82-caracteristicas-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.2. Programación dirigida a eventos
+        8.2. Características principales
       
     </span>
   </a>
@@ -806,10 +817,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#83-ventajas-limitaciones-e-inconvenientes" class="md-nav__link">
+  <a href="#83-programacion-dirigida-por-eventos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8.3. Ventajas, limitaciones e inconvenientes
+        8.3. Programación dirigida por eventos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-ventajas-e-inconvenientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4. Ventajas e inconvenientes
       
     </span>
   </a>
@@ -841,19 +863,78 @@
   <h1>8. Programación mediante guiones</h1>
 
 <h2 id="8-programacion-mediante-guiones">8. Programación mediante guiones</h2>
-<p>La programación web en cliente se ha basado tradicionalmente en el uso de guiones o <em>scripts</em>. JavaScript comenzó utilizándose para tareas sencillas, como validar formularios o mostrar mensajes. Actualmente permite desarrollar aplicaciones completas como FestWeb.</p>
+<p>JavaScript comenzó utilizándose para pequeños guiones o <em>scripts</em>, aunque actualmente permite desarrollar aplicaciones completas.</p>
 <h3 id="81-el-concepto-de-script">8.1. El concepto de script</h3>
-<p>Un <strong>script</strong> es un conjunto de instrucciones que se ejecuta dentro de un entorno anfitrión. En el desarrollo web suele escribirse en JavaScript y el navegador proporciona el entorno de ejecución. El código puede estar integrado en el HTML o almacenado en un fichero externo. Su ejecución puede comenzar al cargar la página o al producirse un evento.</p>
-<h3 id="82-programacion-dirigida-a-eventos">8.2. Programación dirigida a eventos</h3>
-<p>Las aplicaciones web no ejecutan siempre sus instrucciones de principio a fin y terminan. Muchas permanecen a la espera de que ocurra algún acontecimiento. A este concepto se le llama <strong>evento</strong>.</p>
-<p>Un evento es un hecho que el navegador puede detectar, como la carga de un documento, la pulsación de un botón o la llegada de una respuesta del servidor.</p>
+<p>Un <strong>script</strong> es un conjunto de instrucciones ejecutado dentro de un entorno anfitrión. En el desarrollo web, el navegador descarga el código JavaScript, lo ejecuta en el dispositivo del usuario y le proporciona APIs para interactuar con la página.</p>
+<p>Un mismo lenguaje puede ejecutarse en otros entornos, como Node.js, pero las capacidades disponibles serán diferentes.</p>
+<h3 id="82-caracteristicas-principales">8.2. Características principales</h3>
+<table>
+<thead>
+<tr>
+<th class="table-full-container table-bg-principal table-cl-secundario">Característica</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Consecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipado dinámico</td>
+<td>Una variable puede almacenar valores de tipos diferentes</td>
+</tr>
+<tr>
+<td>Coerción de tipos</td>
+<td>JavaScript puede convertir valores automáticamente</td>
+</tr>
+<tr>
+<td>Ejecución mediante un motor</td>
+<td>El motor analiza, ejecuta y optimiza el código mediante JIT</td>
+</tr>
+<tr>
+<td>Programación dirigida por eventos</td>
+<td>Parte del código responde a acciones o acontecimientos</td>
+</tr>
+<tr>
+<td>Operaciones asíncronas</td>
+<td>La aplicación puede esperar resultados sin bloquear toda la interfaz</td>
+</tr>
+<tr>
+<td>Código visible</td>
+<td>El usuario puede inspeccionarlo y modificarlo</td>
+</tr>
+<tr>
+<td>Sandbox</td>
+<td>El navegador restringe el acceso al dispositivo y a otros orígenes</td>
+</tr>
+<tr>
+<td>Dependencia del entorno</td>
+<td>Las APIs y capacidades disponibles pueden variar</td>
+</tr>
+</tbody>
+</table>
+<p>El tipado dinámico aporta flexibilidad, pero puede generar resultados inesperados:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">precio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"20"</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">gastosEnvio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">precio</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gastosEnvio</span><span class="p">);</span><span class="w"> </span><span class="c1">// "205"</span>
+</code></pre></div>
+<p>El operador <code>+</code> concatena los valores porque <code>precio</code> es una cadena. La conversión explícita evita la ambigüedad:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">precio</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gastosEnvio</span><span class="p">);</span><span class="w"> </span><span class="c1">// 25</span>
+</code></pre></div>
+<p>Los errores pueden ser:</p>
+<ul>
+<li><strong>De sintaxis:</strong> el código no respeta las reglas del lenguaje.</li>
+<li><strong>De ejecución:</strong> una instrucción falla mientras se ejecuta.</li>
+<li><strong>Lógicos:</strong> el programa termina, pero el resultado es incorrecto.</li>
+</ul>
+<h3 id="83-programacion-dirigida-por-eventos">8.3. Programación dirigida por eventos</h3>
+<p>Una aplicación web permanece a la espera de eventos como la carga del documento, la pulsación de un botón o la llegada de una respuesta.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">boton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#inscribirse"</span><span class="p">);</span>
 
 <span class="nx">boton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"El usuario quiere inscribirse"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<h3 id="83-ventajas-limitaciones-e-inconvenientes">8.3. Ventajas, limitaciones e inconvenientes</h3>
+<p>El navegador detecta el evento <code>click</code> y ejecuta la función asociada. Los eventos se estudiarán en profundidad en una unidad posterior.</p>
+<h3 id="84-ventajas-e-inconvenientes">8.4. Ventajas e inconvenientes</h3>
 <table>
 <thead>
 <tr>
@@ -863,48 +944,36 @@
 </thead>
 <tbody>
 <tr>
-<td>Respuesta inmediata ante determinadas acciones</td>
+<td>Respuesta inmediata e interfaces dinámicas</td>
 <td>El código puede inspeccionarse y modificarse</td>
 </tr>
 <tr>
-<td>Interfaces más dinámicas</td>
-<td>No debe contener secretos ni credenciales</td>
-</tr>
-<tr>
 <td>Actualización parcial del contenido</td>
-<td>Los datos enviados por el cliente no son completamente fiables</td>
-</tr>
-<tr>
-<td>Validación inicial de formularios</td>
-<td>Existen diferencias entre navegadores y dispositivos</td>
+<td>No debe contener secretos ni aplicar por sí solo la seguridad</td>
 </tr>
 <tr>
 <td>Menos peticiones para operaciones locales</td>
-<td>El rendimiento depende del equipo del usuario</td>
+<td>El rendimiento depende del dispositivo</td>
 </tr>
 <tr>
-<td>Aprovechamiento de los recursos del dispositivo</td>
-<td>El navegador restringe el acceso al sistema</td>
+<td>Portabilidad entre navegadores compatibles</td>
+<td>Pueden existir diferencias de compatibilidad</td>
 </tr>
 <tr>
-<td>Separación entre presentación, comportamiento y procesamiento del servidor</td>
-<td>Un error de JavaScript puede impedir parte del funcionamiento</td>
-</tr>
-<tr>
-<td></td>
-<td>La aplicación puede depender excesivamente de que JavaScript esté disponible</td>
+<td>Desarrollo y despliegue rápidos</td>
+<td>Algunos errores solo aparecen durante la ejecución</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition actividad">
 <p class="admonition-title">Actividad opcional</p>
-<p>Clasifica estas situaciones como <strong>evento</strong>, <strong>respuesta del script</strong> o <strong>responsabilidad del servidor</strong>:</p>
+<p>Responde brevemente:</p>
 <ol>
-<li>El usuario pulsa <strong>Inscribirme</strong>.</li>
-<li>El botón cambia a <strong>Procesando</strong>.</li>
-<li>Se comprueba si quedan plazas.</li>
-<li>Se registra la inscripción.</li>
-<li>Aparece un mensaje de confirmación.</li>
+<li>¿Qué proporciona el navegador al código JavaScript?</li>
+<li>¿Por qué <code>"20" + 5</code> produce <code>"205"</code>?</li>
+<li>¿Qué diferencia existe entre un error de ejecución y uno lógico?</li>
+<li>¿Qué significa programación dirigida por eventos?</li>
+<li>¿Por qué el código cliente no debe contener secretos?</li>
 </ol>
 </div>
 <div class="admonition salto-pagina-pdf"></div>

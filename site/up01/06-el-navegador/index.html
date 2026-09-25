@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#61-funciones-principales-del-navegador" class="md-skip">
+        <a href="#6-el-navegador-como-entorno-de-ejecucion" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -520,6 +520,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -562,6 +564,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -581,10 +585,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#62-componentes-generales-del-navegador" class="md-nav__link">
+  <a href="#62-componentes-generales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2. Componentes generales del navegador
+        6.2. Componentes generales
       
     </span>
   </a>
@@ -592,10 +596,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#63-interpretacion-y-compilacion-jit" class="md-nav__link">
+  <a href="#63-construccion-de-la-pagina" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3. Interpretación y compilación JIT
+        6.3. Construcción de la página
       
     </span>
   </a>
@@ -603,10 +607,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#64-compatibilidad-y-estandares-web" class="md-nav__link">
+  <a href="#64-apis-del-navegador" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4. Compatibilidad y estándares web
+        6.4. APIs del navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-seguridad-y-aislamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Seguridad y aislamiento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-interpretacion-y-compilacion-jit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Interpretación y compilación JIT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-compatibilidad-y-estandares-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Compatibilidad y estándares web
       
     </span>
   </a>
@@ -758,6 +795,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -777,10 +816,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#62-componentes-generales-del-navegador" class="md-nav__link">
+  <a href="#62-componentes-generales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2. Componentes generales del navegador
+        6.2. Componentes generales
       
     </span>
   </a>
@@ -788,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#63-interpretacion-y-compilacion-jit" class="md-nav__link">
+  <a href="#63-construccion-de-la-pagina" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3. Interpretación y compilación JIT
+        6.3. Construcción de la página
       
     </span>
   </a>
@@ -799,10 +838,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#64-compatibilidad-y-estandares-web" class="md-nav__link">
+  <a href="#64-apis-del-navegador" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4. Compatibilidad y estándares web
+        6.4. APIs del navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-seguridad-y-aislamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Seguridad y aislamiento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-interpretacion-y-compilacion-jit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Interpretación y compilación JIT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-compatibilidad-y-estandares-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Compatibilidad y estándares web
       
     </span>
   </a>
@@ -826,76 +898,229 @@
 
 
 
-  <h1>6. El navegador como entorno de ejecución</h1>
-
-<p>El navegador es el programa que permite acceder a las aplicaciones web, pero su función no se limita a descargar y mostrar documentos. Los navegadores actuales son capaces de interpretar HTML, ejecutar JavaScript y aplicar medidas de seguridad. Gracias a estas capacidades, aplicaciones como FestWeb pueden ofrecer una interfaz interactiva sin necesidad de instalar un programa tradicional.</p>
+<h1 id="6-el-navegador-como-entorno-de-ejecucion">6. El navegador como entorno de ejecución</h1>
+<p>El navegador no se limita a mostrar documentos: solicita recursos, interpreta HTML y CSS, ejecuta JavaScript, representa la interfaz y protege al usuario. Por ello, constituye el entorno de ejecución de las aplicaciones web en el cliente.</p>
 <h3 id="61-funciones-principales-del-navegador">6.1. Funciones principales del navegador</h3>
-<p>Cuando una persona utiliza una aplicación web, el navegador realiza numerosas tareas de forma coordinada:</p>
+<p>Un navegador realiza de forma coordinada las siguientes tareas:</p>
 <ol>
-<li><strong>Interpreta direcciones:</strong> permite introducir una URL y determina qué recurso debe solicitar.</li>
-<li><strong>Se comunica con servidores:</strong> envía peticiones y procesa las respuestas recibidas mediante protocolos web.</li>
-<li><strong>Descarga recursos:</strong> obtiene los archivos necesarios para construir la aplicación.</li>
-<li><strong>Interpreta HTML:</strong> analiza la estructura del documento y reconoce sus elementos.</li>
-<li><strong>Aplica CSS:</strong> determina la apariencia y distribución de los elementos.</li>
-<li><strong>Ejecuta JavaScript:</strong> procesa el código que proporciona comportamiento a la interfaz.</li>
-<li><strong>Representa el resultado:</strong> combina estructura, estilos y estado para dibujar la interfaz.</li>
-<li><strong>Gestiona la interacción:</strong> detecta pulsaciones, escritura, movimientos del puntero y otras acciones.</li>
-<li><strong>Protege al usuario:</strong> limita el acceso del código web al sistema operativo y separa, en la medida de lo posible, unas aplicaciones de otras.</li>
+<li>Interpreta una URL y localiza el recurso solicitado.</li>
+<li>Se comunica con servidores y descarga HTML, CSS, JavaScript, imágenes o datos.</li>
+<li>Construye y representa la página.</li>
+<li>Ejecuta JavaScript y gestiona las interacciones.</li>
+<li>Conserva determinados datos en el dispositivo.</li>
+<li>Aplica restricciones de seguridad y permisos.</li>
 </ol>
 <div class="admonition pregunta">
 <p class="admonition-title">Pregunta</p>
-<p>Si el navegador únicamente mostrara documentos, ¿podría FestWeb validar formularios, actualizar el catálogo sin recargar o responder al botón <strong>Inscribirme</strong>?</p>
+<p>Si el navegador solo mostrara documentos, ¿podría FestWeb filtrar eventos, validar formularios o actualizar el catálogo sin recargar la página?</p>
 </div>
-<h3 id="62-componentes-generales-del-navegador">6.2. Componentes generales del navegador</h3>
-<p>La organización concreta depende de cada producto, pero podemos distinguir estos componentes generales:</p>
-<ul>
-<li><strong>Interfaz de usuario:</strong> parte visible del propio navegador, como la barra de direcciones, las pestañas y los botones de navegación. No debe confundirse con la interfaz de la página web.</li>
-<li><strong>Gestión de red:</strong> se ocupa de las comunicaciones necesarias para solicitar y recibir recursos.</li>
-<li><strong>Motor de renderizado:</strong> interpreta principalmente HTML y CSS y participa en la construcción de la representación visual.</li>
-<li><strong>Motor JavaScript:</strong> procesa y ejecuta el código JavaScript.</li>
-<li><strong>Almacenamiento:</strong> gestiona mecanismos que permiten conservar información en el dispositivo.</li>
-<li><strong>Gestión de seguridad:</strong> controla permisos y restricciones para evitar que el código web acceda libremente al dispositivo o a información de otras aplicaciones.</li>
-<li><strong>Herramientas de desarrollo:</strong> permiten inspeccionar el documento, los estilos, los scripts, las comunicaciones y el rendimiento.</li>
-</ul>
-<h3 id="63-interpretacion-y-compilacion-jit">6.3. Interpretación y compilación JIT</h3>
-<p>JavaScript se ha descrito tradicionalmente como un lenguaje interpretado. Sin embargo, los motores actuales utilizan estrategias más complejas. El motor puede analizar el código, comenzar a ejecutarlo, detectar las partes utilizadas con frecuencia, transformarlas y optimizarlas, y ejecutar versiones más eficientes.</p>
-<p>Este proceso recibe habitualmente el nombre de <strong>compilación JIT</strong> (<em>Just in Time</em>). Por tanto, es más preciso afirmar que los motores actuales combinan interpretación y compilación dinámica para ejecutar JavaScript.</p>
-<div class="admonition actividad">
-<p class="admonition-title">Actividad opcional</p>
-<p>Indica qué componente interviene principalmente en cada operación:</p>
+<h3 id="62-componentes-generales">6.2. Componentes generales</h3>
+<table>
+<thead>
+<tr>
+<th class="table-full-container table-bg-principal table-cl-secundario">Componente</th>
+<th class="table-bg-principal table-cl-secundario">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interfaz de usuario</td>
+<td>Barras, pestañas, botones y menús del navegador</td>
+</tr>
+<tr>
+<td>Motor del navegador</td>
+<td>Coordina los componentes y la navegación</td>
+</tr>
+<tr>
+<td>Motor de renderizado</td>
+<td>Interpreta HTML y CSS y genera la representación visual</td>
+</tr>
+<tr>
+<td>Motor JavaScript</td>
+<td>Analiza y ejecuta JavaScript</td>
+</tr>
+<tr>
+<td>Módulo de red</td>
+<td>Gestiona peticiones, respuestas, caché y cookies</td>
+</tr>
+<tr>
+<td>Almacenamiento</td>
+<td>Conserva información en el dispositivo</td>
+</tr>
+<tr>
+<td>Seguridad</td>
+<td>Aplica aislamiento, permisos y restricciones</td>
+</tr>
+<tr>
+<td>DevTools</td>
+<td>Permite inspeccionar y depurar la aplicación</td>
+</tr>
+</tbody>
+</table>
+<p>Los motores más utilizados son:</p>
+<table>
+<thead>
+<tr>
+<th class="table-full-container table-bg-principal table-cl-secundario">Navegadores</th>
+<th class="table-bg-principal table-cl-secundario">Motor de renderizado</th>
+<th class="table-bg-principal table-cl-secundario">Motor JavaScript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome, Edge y Opera</td>
+<td>Blink</td>
+<td>V8</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Gecko</td>
+<td>SpiderMonkey</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>WebKit</td>
+<td>JavaScriptCore</td>
+</tr>
+</tbody>
+</table>
+<p>Un navegador completo no es lo mismo que su motor de renderizado ni que su motor JavaScript.</p>
+<h3 id="63-construccion-de-la-pagina">6.3. Construcción de la página</h3>
+<p>El navegador transforma los recursos recibidos en una interfaz mediante este proceso:</p>
 <ol>
-<li>Ejecutar una función JavaScript.</li>
-<li>Calcular el tamaño de una tarjeta.</li>
-<li>Enviar una petición al servidor.</li>
-<li>Mostrar las pestañas del navegador.</li>
-<li>Examinar una variable durante la depuración.</li>
+<li><strong>DOM:</strong> representa la estructura creada a partir del HTML.</li>
+<li><strong>CSSOM:</strong> representa las reglas obtenidas del CSS.</li>
+<li><strong>Render Tree:</strong> combina los elementos visibles con sus estilos.</li>
+<li><strong>Layout:</strong> calcula tamaños y posiciones.</li>
+<li><strong>Paint y composición:</strong> dibuja y combina las capas en pantalla.</li>
 </ol>
+<div class="highlight"><pre><span></span><code>HTML → DOM ───────────────┐
+                         ├→ Render Tree → Layout → Paint
+CSS  → CSSOM ────────────┘
+</code></pre></div>
+<p>JavaScript puede modificar el DOM o los estilos. Cuando el cambio afecta a la presentación, el navegador actualiza las fases necesarias.</p>
+<div class="admonition importante">
+<p class="admonition-title">DOM y página visible</p>
+<p>El DOM representa el documento, pero no es una imagen de la página. Un elemento con <code>display: none</code> puede existir en el DOM y no aparecer en el Render Tree.</p>
 </div>
-<h3 id="64-compatibilidad-y-estandares-web">6.4. Compatibilidad y estándares web</h3>
-<p>Las aplicaciones web pueden utilizarse desde navegadores y dispositivos diferentes. Para que esto sea posible, las tecnologías deben seguir especificaciones compartidas. Los estándares web describen cómo deben funcionar tecnologías como HTML, CSS, JavaScript, los gráficos y el contenido multimedia.</p>
-<p>Organismos como el <strong>W3C</strong> y el <strong>WHATWG</strong>, junto con <strong>Ecma International</strong> en el caso de ECMAScript, participan en la elaboración y evolución de estas especificaciones. Sin estándares comunes, cada navegador podría interpretar de forma completamente distinta el mismo código.</p>
-<p>Los estándares permiten crear aplicaciones más portables, reducir diferencias entre navegadores, mejorar la interoperabilidad, incorporar nuevas capacidades de forma coordinada y establecer comportamientos previsibles. Sin embargo, que exista un estándar no significa que todos los navegadores incorporen una característica al mismo tiempo. Por ello, una aplicación debe probarse en los navegadores y dispositivos relevantes para su público.</p>
-<p>Una estrategia consiste en proporcionar primero una experiencia básica y compatible y añadir capacidades avanzadas cuando estén disponibles. Es preferible comprobar si una capacidad existe antes de utilizarla:</p>
+<h3 id="64-apis-del-navegador">6.4. APIs del navegador</h3>
+<p>JavaScript proporciona el lenguaje; el navegador añade objetos y APIs para interactuar con la página, la red o el dispositivo.</p>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">API</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Utilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOM</td>
+<td>Consultar y modificar el documento</td>
+</tr>
+<tr>
+<td>Eventos</td>
+<td>Responder a acciones del usuario o del navegador</td>
+</tr>
+<tr>
+<td>Web Storage</td>
+<td>Conservar preferencias y datos sencillos</td>
+</tr>
+<tr>
+<td>Fetch</td>
+<td>Intercambiar datos con servidores</td>
+</tr>
+<tr>
+<td>Geolocalización</td>
+<td>Solicitar la ubicación del dispositivo</td>
+</tr>
+<tr>
+<td>Multimedia</td>
+<td>Utilizar audio, vídeo, cámara o micrófono</td>
+</tr>
+<tr>
+<td>Notificaciones</td>
+<td>Mostrar avisos con autorización del usuario</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">boton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#inscribirse"</span><span class="p">);</span>
+
+<span class="nx">boton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Inscripción solicitada"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><code>document</code> y <code>addEventListener()</code> son capacidades proporcionadas por el navegador, no por el núcleo de JavaScript.</p>
+<p>Antes de utilizar una API conviene comprobar que está disponible:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">"geolocation"</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">navigator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"La geolocalización está disponible"</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Geolocalización disponible"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>Las APIs se estudiarán con más profundidad en las unidades correspondientes.</p>
+<h3 id="65-seguridad-y-aislamiento">6.5. Seguridad y aislamiento</h3>
+<p>El navegador ejecuta código descargado de Internet dentro de un entorno restringido o <strong>sandbox</strong>. Un script no puede acceder libremente a los archivos, programas, cámara, micrófono o datos de otras aplicaciones.</p>
+<p>Un <strong>origen</strong> está formado por el protocolo, el dominio y el puerto. Dos URL pertenecen al mismo origen únicamente si coinciden los tres elementos.</p>
+<table>
+<thead>
+<tr>
+<th class="table-full-container table-bg-principal table-cl-secundario">URL respecto a <code>https://festweb.es</code></th>
+<th class="table-full-container table-bg-principal table-cl-secundario" style="text-align: center;">¿Mismo origen?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://festweb.es/eventos</code></td>
+<td style="text-align: center;">Sí</td>
+</tr>
+<tr>
+<td><code>http://festweb.es</code></td>
+<td style="text-align: center;">No: cambia el protocolo</td>
+</tr>
+<tr>
+<td><code>https://api.festweb.es</code></td>
+<td style="text-align: center;">No: cambia el dominio</td>
+</tr>
+<tr>
+<td><code>https://festweb.es:8443</code></td>
+<td style="text-align: center;">No: cambia el puerto</td>
+</tr>
+</tbody>
+</table>
+<p>La <strong>política del mismo origen</strong> impide que una página lea libremente información de otro origen. Cuando una API desea autorizar una comunicación externa puede utilizar <strong>CORS</strong>, indicando mediante cabeceras qué orígenes pueden leer sus respuestas.</p>
+<p>Además:</p>
+<ul>
+<li>Las capacidades sensibles requieren permiso del usuario.</li>
+<li>Algunas APIs solo funcionan en contextos seguros mediante HTTPS.</li>
+<li>El código del cliente puede inspeccionarse y modificarse.</li>
+<li>Las validaciones y reglas de seguridad deben comprobarse también en el servidor.</li>
+</ul>
+<div class="admonition peligro">
+<p class="admonition-title">El cliente no es un entorno de confianza</p>
+<p>El código JavaScript nunca debe contener contraseñas, credenciales ni claves secretas.</p>
+</div>
+<h3 id="66-interpretacion-y-compilacion-jit">6.6. Interpretación y compilación JIT</h3>
+<p>JavaScript se ha descrito tradicionalmente como un lenguaje interpretado. Sin embargo, los motores actuales analizan el código, comienzan a ejecutarlo y compilan u optimizan las partes utilizadas con frecuencia. Este proceso se denomina <strong>compilación JIT</strong> (<em>Just in Time</em>).</p>
+<p>Por tanto, resulta más preciso afirmar que los motores modernos combinan interpretación y compilación dinámica.</p>
+<h3 id="67-compatibilidad-y-estandares-web">6.7. Compatibilidad y estándares web</h3>
+<p>Los estándares permiten que HTML, CSS y JavaScript funcionen de forma previsible en navegadores diferentes. En su elaboración participan organismos como W3C, WHATWG y Ecma International.</p>
+<p>No todos los navegadores incorporan las novedades simultáneamente. Por ello debemos:</p>
+<ul>
+<li>Utilizar tecnologías estandarizadas.</li>
+<li>Comprobar la disponibilidad de las características.</li>
+<li>Proporcionar alternativas cuando sea posible.</li>
+<li>Probar la aplicación en los navegadores y dispositivos relevantes.</li>
+</ul>
 <div class="admonition actividad">
 <p class="admonition-title">Actividad opcional</p>
-<p>Responde a las siguientes preguntas:</p>
+<p>Responde brevemente:</p>
 <ol>
-<li>¿Por qué el navegador se considera un entorno de ejecución?</li>
-<li>¿Qué funciones realiza además de mostrar páginas?</li>
-<li>¿Qué diferencia existe entre el navegador y su motor de renderizado?</li>
-<li>¿Qué función desempeña el motor JavaScript?</li>
+<li>¿Qué diferencia existe entre navegador, motor de renderizado y motor JavaScript?</li>
+<li>¿Qué representaciones se construyen a partir de HTML y CSS?</li>
+<li>¿Qué diferencia existe entre layout y paint?</li>
+<li>¿Qué proporciona una Web API?</li>
+<li>¿Qué tres elementos forman un origen?</li>
+<li>¿Por qué no debemos confiar únicamente en la validación del cliente?</li>
 <li>¿Qué significa compilación JIT?</li>
-<li>¿Qué representación construye el navegador a partir del HTML?</li>
-<li>¿Cómo colaboran HTML, CSS y JavaScript durante la representación?</li>
-<li>¿Qué tipos de características proporciona el navegador?</li>
-<li>¿Por qué el código web se ejecuta en un entorno aislado?</li>
-<li>¿Puede JavaScript acceder libremente a los archivos del dispositivo?</li>
-<li>¿Por qué deben probarse las aplicaciones en diferentes navegadores?</li>
-<li>¿Qué relación existe entre los estándares y la compatibilidad?</li>
+<li>¿Por qué es necesario probar una aplicación en varios navegadores?</li>
 </ol>
 </div>
 <div class="admonition salto-pagina-pdf"></div>
@@ -905,6 +1130,9 @@
 
 
 
+
+  
+  
 
 
 
