@@ -1,0 +1,2269 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes del módulo de Desarrollo Web en Entorno Cliente de 2.º DAW">
+      
+      
+        <meta name="author" content="Carlos Alcañiz Carbonell">
+      
+      
+      
+        <link rel="prev" href="../A02.01/">
+      
+      
+        <link rel="next" href="../08-conversion-de-tipos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UP02 · Fundamentos de JavaScript · Operadores y expresiones - Desarrollo Web en Entorno Cliente</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#71-operador-de-asignacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Desarrollo Web en Entorno Cliente" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Cliente" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Cliente
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UP02 · Fundamentos de JavaScript · Operadores y expresiones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="light-green"  aria-label="Activar modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Activar modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="light-green"  aria-label="Activar modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Activar modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../up01/01-index/" class="md-tabs__link">
+          
+  
+  
+  UP01
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-relacion-curricular/" class="md-tabs__link">
+          
+  
+  
+  UP02
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desarrollo Web en Entorno Cliente" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Cliente" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Desarrollo Web en Entorno Cliente
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UP01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UP01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/01-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Relación Curricular
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/02-introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/03-aplicaciones-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Aplicaciones Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/04-arquitectura-de-una-aplicacion-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Arquitectura de una aplicación web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/05-ejecucion-cliente-servidor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejecución en cliente y servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/06-el-navegador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. El navegador como entorno de ejecución
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/07-tecnologias-desarrollo-web-cliente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Tecnologías de desarrollo web en cliente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/08-programacion-mediante-guiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación mediante guiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/09-integracion-javascript-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Integración de JavaScript en HTML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../up01/10-herramientas-de-desarrollo-y-prueba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Herramientas de desarrollo y prueba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UP02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UP02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-relacion-curricular/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Relación Curricular
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-eleccion-lenguaje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Elección del lenguaje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-primer-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Primer programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-variables-y-constantes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Variables y constantes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tipos-de-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02.01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A02.01. Datos de un evento de FestWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Operadores y expresiones
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Operadores y expresiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-operador-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. Operador de asignación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-operadores-aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Operadores aritméticos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2. Operadores aritméticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operador-de-resto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador de resto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-operadores-de-incremento-y-decremento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Operadores de incremento y decremento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-operadores-de-asignacion-compuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4. Operadores de asignación compuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-el-operador-y-las-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5. El operador + y las cadenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-operadores-de-comparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6. Operadores de comparación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-igualdad-estricta-y-debil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7. Igualdad estricta y débil
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8. Operadores lógicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.8. Operadores lógicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operador-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador AND
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador OR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador NOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-precedencia-de-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9. Precedencia de operadores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#710-operador-ternario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10. Operador ternario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#711-calculos-para-una-inscripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11. Cálculos para una inscripción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.11. Cálculos para una inscripción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-necesarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones necesarias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado esperado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-conversion-de-tipos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Conversión de tipos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-ambito-de-las-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Ámbito de las variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02.02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A02.02. Datos de un evento de FestWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-estructuras-condicionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Estructuras condicionales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02.03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A02.03. Datos de un evento de FestWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-bucles-e-iteraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Bucles e iteraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02.04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A02.04. Datos de un evento de FestWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-comentarios-y-legibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Comentarios y legibilidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-depuracion-y-herramientas-de-apoyo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Depuración y herramientas de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A02.05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A02.05. Datos de un evento de FestWeb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-operador-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. Operador de asignación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-operadores-aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Operadores aritméticos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2. Operadores aritméticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operador-de-resto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador de resto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-operadores-de-incremento-y-decremento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Operadores de incremento y decremento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-operadores-de-asignacion-compuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4. Operadores de asignación compuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-el-operador-y-las-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5. El operador + y las cadenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-operadores-de-comparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6. Operadores de comparación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-igualdad-estricta-y-debil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7. Igualdad estricta y débil
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.8. Operadores lógicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.8. Operadores lógicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operador-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador AND
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador OR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador NOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-precedencia-de-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.9. Precedencia de operadores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#710-operador-ternario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.10. Operador ternario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#711-calculos-para-una-inscripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.11. Cálculos para una inscripción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.11. Cálculos para una inscripción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-necesarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones necesarias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado esperado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>7. Operadores y expresiones</h1>
+
+<p>Los operadores permiten combinar valores, realizar cálculos, comparar datos y construir condiciones. Los valores sobre los que actúa un operador se denominan <strong>operandos</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">precioEntrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">35</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cantidad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">precioEntrada</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">cantidad</span><span class="p">;</span>
+</code></pre></div>
+<p>En la expresión <code>precioEntrada * cantidad</code>:</p>
+<ul>
+<li><code>precioEntrada</code> y <code>cantidad</code> son los operandos.</li>
+<li><code>*</code> es el operador.</li>
+<li>El resultado de la expresión es <code>105</code>.</li>
+</ul>
+<h3 id="71-operador-de-asignacion">7.1. Operador de asignación</h3>
+<p>El operador <code>=</code> asigna un valor a un identificador:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+</code></pre></div>
+<p>No debe confundirse la asignación con la comparación:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+</code></pre></div>
+<p>Esta instrucción almacena el valor <code>3200</code>. No está preguntando si ambos valores son iguales.</p>
+<p>También podemos asignar a una variable el resultado de una expresión:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5000</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">entradasDisponibles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition salto-pagina-pdf"></div>
+<h3 id="72-operadores-aritmeticos">7.2. Operadores aritméticos</h3>
+<p>Los operadores aritméticos permiten realizar cálculos numéricos.</p>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">Operador</th>
+<th class="table-content table-bg-principal table-cl-secundario">Operación</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Suma</td>
+<td><code>5 + 3</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Resta</td>
+<td><code>5 - 3</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplicación</td>
+<td><code>5 * 3</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>División</td>
+<td><code>15 / 3</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Resto de una división</td>
+<td><code>17 % 5</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>Potencia</td>
+<td><code>5 ** 2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo aplicado a FestWeb:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">precioEntrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">35</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cantidadEntradas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">gastosGestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">subtotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">precioEntrada</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">cantidadEntradas</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">gastosTotales</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gastosGestion</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">cantidadEntradas</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">importeFinal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">subtotal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gastosTotales</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">importeFinal</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="operador-de-resto">Operador de resto</h4>
+<p>El operador <code>%</code> devuelve el resto de una división:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">10</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+</code></pre></div>
+<p>Puede utilizarse, por ejemplo, para determinar si un número es par:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">numeroEntrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">resto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">numeroEntrada</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resto</span><span class="p">);</span>
+</code></pre></div>
+<p>Si el resto es <code>0</code>, el número es divisible entre <code>2</code>.</p>
+<h3 id="73-operadores-de-incremento-y-decremento">7.3. Operadores de incremento y decremento</h3>
+<p>Los operadores <code>++</code> y <code>--</code> aumentan o reducen una variable en una unidad:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+
+<span class="nx">entradasVendidas</span><span class="o">++</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entradasVendidas</span><span class="p">);</span>
+
+<span class="nx">entradasVendidas</span><span class="o">--</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entradasVendidas</span><span class="p">);</span>
+</code></pre></div>
+<p>Solo pueden utilizarse sobre valores que puedan reasignarse. No pueden aplicarse a una constante:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5000</span><span class="p">;</span>
+
+<span class="c1">// Error:</span>
+<span class="c1">// aforoTotal++;</span>
+</code></pre></div>
+<p>Existen formas prefijas y sufijas:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">cantidad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+
+<span class="nx">cantidad</span><span class="o">++</span><span class="p">;</span>
+<span class="o">++</span><span class="nx">cantidad</span><span class="p">;</span>
+</code></pre></div>
+<p>Cuando aparecen en una instrucción independiente, ambas incrementan el valor en una unidad. Sus diferencias se estudiarán cuando sea necesario evaluar el resultado dentro de expresiones más complejas.</p>
+<h3 id="74-operadores-de-asignacion-compuesta">7.4. Operadores de asignación compuesta</h3>
+<p>Los operadores de asignación compuesta realizan una operación y almacenan el resultado en la misma variable.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+
+<span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+</code></pre></div>
+<p>La instrucción anterior equivale a:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition salto-pagina-pdf"></div>
+<p>Los principales operadores son:</p>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">Operador</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Equivalencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+=</code></td>
+<td><code>valor = valor + cantidad</code></td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td><code>valor = valor - cantidad</code></td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td><code>valor = valor * cantidad</code></td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td><code>valor = valor / cantidad</code></td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td><code>valor = valor % cantidad</code></td>
+</tr>
+<tr>
+<td><code>**=</code></td>
+<td><code>valor = valor ** cantidad</code></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">recaudacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span>
+
+<span class="nx">recaudacion</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">35</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">recaudacion</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="75-el-operador-y-las-cadenas">7.5. El operador <code>+</code> y las cadenas</h3>
+<p>El operador <code>+</code> puede realizar dos operaciones diferentes:</p>
+<ul>
+<li>Sumar números.</li>
+<li>Concatenar cadenas de texto.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Fest"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"Web"</span><span class="p">);</span>
+</code></pre></div>
+<p>Cuando uno de los operandos es una cadena, JavaScript puede convertir el otro valor a texto:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">precio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">35</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Precio: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">precio</span><span class="p">);</span>
+</code></pre></div>
+<p>Este comportamiento puede producir resultados inesperados:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"20"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
+</code></pre></div>
+<p>El resultado es la cadena <code>"205"</code>, no el número <code>25</code>. Estas conversiones se estudiarán con detalle en el siguiente apartado.</p>
+<p>Para construir mensajes utilizaremos preferentemente plantillas literales:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">precio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">35</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Precio: </span><span class="si">${</span><span class="nx">precio</span><span class="si">}</span><span class="sb"> €`</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="76-operadores-de-comparacion">7.6. Operadores de comparación</h3>
+<p>Los operadores de comparación relacionan dos valores y producen un resultado lógico: <code>true</code> o <code>false</code>.</p>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">Operador</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>===</code></td>
+<td>Igualdad estricta</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td>Desigualdad estricta</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Mayor que</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Menor que</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Mayor o igual que</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Menor o igual que</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3200</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5000</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="p">);</span>
+</code></pre></div>
+<p>Los resultados son valores lógicos que posteriormente podremos utilizar para tomar decisiones.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">quedanEntradas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entradasVendidas</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">aforoTotal</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">quedanEntradas</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition salto-pagina-pdf"></div>
+<h3 id="77-igualdad-estricta-y-debil">7.7. Igualdad estricta y débil</h3>
+<p>JavaScript dispone de dos formas principales de comprobar la igualdad:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">5</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"5"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"5"</span><span class="p">);</span>
+</code></pre></div>
+<p>La igualdad estricta <code>===</code> compara el valor y el tipo.</p>
+<p>La igualdad débil <code>==</code> puede convertir los operandos antes de compararlos. Esta conversión puede generar resultados poco intuitivos.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">""</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>Durante el curso utilizaremos:</p>
+<ul>
+<li><code>===</code> para comprobar igualdad.</li>
+<li><code>!==</code> para comprobar desigualdad.</li>
+</ul>
+<p>Evitaremos <code>==</code> y <code>!=</code> salvo cuando estemos analizando deliberadamente las conversiones del lenguaje.</p>
+<div class="admonition importante">
+<p class="admonition-title">Regla de comparación</p>
+<p>Utiliza <code>===</code> y <code>!==</code> para evitar conversiones implícitas inesperadas.</p>
+</div>
+<h3 id="78-operadores-logicos">7.8. Operadores lógicos</h3>
+<p>Los operadores lógicos permiten combinar o negar expresiones booleanas.</p>
+<table>
+<thead>
+<tr>
+<th class="table-main-column table-bg-principal table-cl-secundario">Operador</th>
+<th class="table-content table-bg-principal table-cl-secundario">Nombre</th>
+<th class="table-full-container table-bg-principal table-cl-secundario">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td>Es verdadero cuando ambas expresiones son verdaderas.</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>OR</td>
+<td>Es verdadero cuando al menos una expresión es verdadera.</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT</td>
+<td>Invierte el valor lógico.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operador-and">Operador AND</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">inscripcionAbierta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">quedanEntradas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">puedeInscribirse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inscripcionAbierta</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">quedanEntradas</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">puedeInscribirse</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="operador-or">Operador OR</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">tieneEntrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tieneInvitacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">puedeAcceder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tieneEntrada</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">tieneInvitacion</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">puedeAcceder</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="operador-not">Operador NOT</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">entradasAgotadas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">!</span><span class="nx">entradasAgotadas</span><span class="p">);</span>
+</code></pre></div>
+<p>El operador <code>!</code> transforma <code>true</code> en <code>false</code> y <code>false</code> en <code>true</code>.</p>
+<h3 id="79-precedencia-de-operadores">7.9. Precedencia de operadores</h3>
+<p>Cuando una expresión contiene varios operadores, JavaScript sigue un orden de evaluación.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resultado</span><span class="p">);</span>
+</code></pre></div>
+<p>La multiplicación se realiza antes que la suma, por lo que el resultado es <code>20</code>.</p>
+<p>Podemos utilizar paréntesis para modificar o aclarar el orden:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resultado</span><span class="p">);</span>
+</code></pre></div>
+<p>Ahora el resultado es <code>30</code>.</p>
+<div class="admonition salto-pagina-pdf"></div>
+<p>Como regla general:</p>
+<ol>
+<li>Se evalúan los paréntesis.</li>
+<li>Se realizan potencias.</li>
+<li>Se realizan multiplicaciones, divisiones y restos.</li>
+<li>Se realizan sumas y restas.</li>
+<li>Se evalúan las comparaciones.</li>
+<li>Se evalúan los operadores lógicos.</li>
+<li>Se realiza la asignación.</li>
+</ol>
+<p>No es necesario memorizar toda la tabla de precedencia. Cuando una expresión pueda resultar ambigua, utilizaremos paréntesis.</p>
+<h3 id="710-operador-ternario">7.10. Operador ternario</h3>
+<p>El operador ternario permite elegir entre dos valores mediante una condición:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">entradasDisponibles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1800</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">estado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entradasDisponibles</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">  </span><span class="o">?</span><span class="w"> </span><span class="s2">"Entradas disponibles"</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="s2">"Entradas agotadas"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">estado</span><span class="p">);</span>
+</code></pre></div>
+<p>Su estructura es:</p>
+<div class="highlight"><pre><span></span><code>condición ? valorSiSeCumple : valorSiNoSeCumple
+</code></pre></div>
+<p>Lo utilizaremos únicamente para decisiones sencillas. Las estructuras condicionales completas se estudiarán en un apartado posterior.</p>
+<div class="admonition salto-pagina-pdf"></div>
+<h3 id="711-calculos-para-una-inscripcion">7.11. Cálculos para una inscripción</h3>
+<p>Vamos a calcular el importe de una compra de entradas y comprobar algunas condiciones.</p>
+<h4 id="datos-disponibles">Datos disponibles</h4>
+<ul>
+<li>Precio de cada entrada: <strong>35 €</strong>.</li>
+<li>Número de entradas compradas: <strong>4</strong>.</li>
+<li>Gastos de gestión por entrada: <strong>2,50 €</strong>.</li>
+<li>Descuento disponible: <strong>10 %</strong>.</li>
+<li>Aforo total: <strong>5000 personas</strong>.</li>
+<li>Entradas vendidas: <strong>4997</strong>.</li>
+</ul>
+<h4 id="operaciones-necesarias">Operaciones necesarias</h4>
+<p>El programa deberá obtener:</p>
+<ol>
+<li>El precio conjunto de las entradas.</li>
+<li>Los gastos de gestión totales.</li>
+<li>El importe del descuento.</li>
+<li>El precio final después de aplicar el descuento.</li>
+<li>Las entradas que quedan disponibles.</li>
+<li>Si existe aforo suficiente para completar la compra.</li>
+<li>Si el número de entradas compradas es par.</li>
+<li>Un mensaje que indique si la compra puede realizarse.</li>
+</ol>
+<h4 id="resultado-esperado">Resultado esperado</h4>
+<div class="highlight"><pre><span></span><code>Subtotal: 140 €
+Gastos de gestión: 10 €
+Descuento: 14 €
+Importe final: 136 €
+Entradas disponibles: 3
+Hay aforo suficiente: false
+La cantidad de entradas es par: true
+Estado: No hay suficientes entradas
+</code></pre></div>
+<div class="admonition reto">
+<p class="admonition-title">Live coding</p>
+<p>Construiremos el programa identificando:</p>
+<ol>
+<li>Qué operadores aritméticos necesitamos.</li>
+<li>Qué valores pueden declararse mediante <code>const</code>.</li>
+<li>Qué comparación determina si existe suficiente aforo.</li>
+<li>Cómo comprobar si una cantidad es par.</li>
+<li>Cómo obtener el estado final mediante un operador ternario.</li>
+<li>Qué paréntesis ayudan a expresar los cálculos con claridad.</li>
+</ol>
+</div>
+<div class="admonition actividad">
+<p class="admonition-title">Actividad opcional</p>
+<p>Modifica los datos del ejemplo anterior y comprueba cómo cambia el resultado:</p>
+<ul>
+<li>Compra solamente dos entradas.</li>
+<li>Elimina el descuento.</li>
+<li>Aumenta los gastos de gestión.</li>
+<li>Cambia el aforo disponible.</li>
+<li>Intenta comprar más entradas de las que quedan.</li>
+</ul>
+<p>Antes de ejecutar el programa, predice el resultado de cada expresión.</p>
+</div>
+<div class="admonition salto-pagina-pdf"></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../A02.01/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: A02.01. Datos de un evento de FestWeb">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                A02.01. Datos de un evento de FestWeb
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-conversion-de-tipos/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 8. Conversión de tipos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                8. Conversión de tipos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026-2027 Carlos Alcañiz · Desarrollo Web en Entorno Cliente
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
