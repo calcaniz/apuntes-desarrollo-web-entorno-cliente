@@ -1,0 +1,42 @@
+INHERIT: mkdocs.yml
+
+plugins:
+  - search:
+      lang: es
+
+  - print-site:
+      add_to_navigation: true
+      print_page_title: "Versión imprimible de la UP03"
+      print_page_basename: "imprimir-up03"
+
+      add_table_of_contents: true
+      toc_title: "Índice"
+      toc_depth: 2
+
+      enumerate_headings: false
+      enumerate_figures: false
+
+      add_cover_page: true
+      cover_page_template: "docs/assets/templates/portada-pdf.tpl"
+
+      add_print_site_banner: false
+      add_full_urls: false
+      include_css: true
+
+nav:
+  - UP03:
+      - Relación curricular: up03/01-index.md
+      - Introducción a TypeScript: up03/02-introduccion-typescript.md
+      - Objetos, tipos e interfaces: up03/03-objetos-tipos-interfaces.md
+      - Clases, propiedades y constructores: up03/05-clases-propiedades-constructores.md
+      - Métodos y encapsulación: up03/07-metodos-encapsulacion.md
+      - Relación entre objetos: up03/09-relacion-entre-objetos.md
+
+extra:
+  generator: false
+
+  pdf:
+    modulo: "Desarrollo Web en Entorno Cliente"
+    codigo_up: "UP03"
+    titulo_up: "Programación de TypeScript"
+    curso: "2026-2027"

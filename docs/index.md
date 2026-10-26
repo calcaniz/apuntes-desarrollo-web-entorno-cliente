@@ -37,13 +37,8 @@ A lo largo del curso aprenderemos a:
 | Unidad { .table-full-container .table-cl-secundario .table-bg-principal } | Título { .table-cl-secundario .table-bg-principal } | Resultado de aprendizaje { .table-cl-secundario .table-bg-principal } | Duración { .table-cl-secundario .table-bg-principal } |
 |---|---|:---:|:---:|
 | **[UP01](up01/01-index.md)** | Arquitecturas y tecnologías de programación web en cliente | RA1 | 12 h |
-| **UP02** | Fundamentos de JavaScript | RA2 | 26 h |
-| **UP03** | Objetos predefinidos y entorno del navegador | RA3 | 24 h |
-| **UP04** | Funciones, colecciones y objetos definidos por el usuario | RA4 | 32 h |
-| **UP05** | Modelo de objetos del documento | RA6 | 28 h |
-| **UP06** | Eventos, formularios y validación | RA5 | 26 h |
-| **UP07** | Comunicación asíncrona y consumo de servicios web | RA7 | 20 h |
-| **UP08** | Desarrollo de aplicaciones con Vue | RA7 | 32 h |
+| **[UP02](up02/01-index.md)** | Fundamentos de JavaScript | RA2 | 26 h |
+| **[UP03](up03/01-index.md)** | Introducción a TypeScript | RA3 | 22 h |
 |  | **Total** |  | **200 h** |
 
 ## Nuestro recorrido tecnológico

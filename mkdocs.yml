@@ -38,7 +38,11 @@ markdown_extensions:
   - md_in_html
   - tables
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
 
@@ -84,3 +88,14 @@ nav:
       - 12. Comentarios y legibilidad: up02/12-comentarios-y-legibilidad.md
       - 13. Depuración y herramientas de apoyo: up02/13-depuracion-y-herramientas-de-apoyo.md
       - A02.05. Datos de un evento de FestWeb: up02/A02.05.md
+  - UP03:
+      - Relación curricular: up03/01-index.md
+      - Introducción a TypeScript: up03/02-introduccion-typescript.md
+      - Objetos, tipos e interfaces: up03/03-objetos-tipos-interfaces.md
+      - A03.01 · Modelado inicial: up03/04-actividad-modelado-inicial.md
+      - Clases, propiedades y constructores: up03/05-clases-propiedades-constructores.md
+      - A03.02 · Clase Evento: up03/06-actividad-clase-evento.md
+      - Métodos y encapsulación: up03/07-metodos-encapsulacion.md
+      - A03.03 · Comportamiento y reservas: up03/08-actividad-comportamiento-reservas.md
+      - Relación entre objetos: up03/09-relacion-entre-objetos.md
+      - A03.04 · Modelo de FestWeb: up03/10-actividad-modelo-festweb.md
