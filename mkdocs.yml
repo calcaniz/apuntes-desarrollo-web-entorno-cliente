@@ -99,3 +99,16 @@ nav:
       - A03.03 · Comportamiento y reservas: up03/08-actividad-comportamiento-reservas.md
       - Relación entre objetos: up03/09-relacion-entre-objetos.md
       - A03.04 · Modelo de FestWeb: up03/10-actividad-modelo-festweb.md
+  - UP04:
+      - Relación Curricular: up04/01-index.md
+      - Introducción a Vue y al entorno del navegador: up04/02-introduccion-vue-entorno-navegador.md
+      - BOM, árbol DOM y selección de elementos: up04/03-bom-dom-seleccion.md
+      - A04.01. Radiografía de FestWeb: up04/04-actividad-a0401.md
+      - Modificación y creación dinámica del DOM: up04/05-modificacion-creacion-dom.md
+      - A04.02. Generación dinámica del catálogo: up04/06-actividad-a0402.md
+      - Eventos e interacción con el usuario: up04/07-eventos-interaccion.md
+      - A04.03. Catálogo interactivo: up04/08-actividad-a0403.md
+      - Formularios y validación: up04/09-formularios-validacion.md
+      - A04.04. Alta de eventos: up04/10-actividad-a0404.md
+      - Del DOM imperativo a los componentes de Vue: up04/11-componentes-vue-composition-api.md
+      - A04.05. FestWeb con componentes Vue: up04/12-actividad-a0405.md

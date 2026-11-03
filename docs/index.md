@@ -36,9 +36,10 @@ A lo largo del curso aprenderemos a:
 
 | Unidad { .table-full-container .table-cl-secundario .table-bg-principal } | Título { .table-cl-secundario .table-bg-principal } | Resultado de aprendizaje { .table-cl-secundario .table-bg-principal } | Duración { .table-cl-secundario .table-bg-principal } |
 |---|---|:---:|:---:|
-| **[UP01](up01/01-index.md)** | Arquitecturas y tecnologías de programación web en cliente | RA1 | 12 h |
-| **[UP02](up02/01-index.md)** | Fundamentos de JavaScript | RA2 | 26 h |
-| **[UP03](up03/01-index.md)** | Introducción a TypeScript | RA3 | 22 h |
+| **[UP01](up01/01-index.md)** | Arquitecturas y tecnologías de programación web en cliente | RA01 | 12 h |
+| **[UP02](up02/01-index.md)** | Fundamentos de JavaScript | RA02 | 26 h |
+| **[UP03](up03/01-index.md)** | Introducción a TypeScript | RA04 | 22 h |
+| **[UP04](up04/01-index.md)** | Modelo de objetos del navegador, DOM y eventos | RA03, RA05, RA06 | 22 h |
 |  | **Total** |  | **200 h** |
 
 ## Nuestro recorrido tecnológico
